@@ -1,18 +1,79 @@
 aid: 4k-garden
 name: 4K Garden
-description: '4K Garden is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  4K Garden (4K花园), legally Sikai Garden Network Technology (Guangzhou) Co., Ltd.
+  (四开花园网络科技（广州）有限公司), is a Chinese ultra-high-definition video technology
+  company founded in 2016 and headquartered in Guangzhou, Guangdong, with roughly 200
+  staff across Guangzhou and Beijing. It produces, aggregates and distributes 4K and 8K
+  content, was among the first in China to run end-to-end UHD HDR live production over
+  the public internet and 5G, operates large outdoor naked-eye 3D LED landmarks, builds
+  8K 3D VR capture systems and domestically-sourced UHD broadcast trucks, and sells 5G
+  video ringtone services with the three national carriers. Its AI product, Diebian AI
+  (蝶变 AI), is a credit-metered video super-resolution platform at fly4k.com, and is the
+  only part of the business with a machine-readable API contract.
+image: http://m.4kgarden.com/images/logo.png
 url: https://raw.githubusercontent.com/api-evangelist/4k-garden/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-05'
 modified: '2026-09-05'
+position: Producing
 tags:
 - Company
-apis: []
+- Video
+- Ultra High Definition
+- Media and Entertainment
+- Content Distribution
+- Live Streaming
+- Artificial Intelligence
+- Video Super Resolution
+- Virtual Reality
+- China
+apis:
+- name: Diebian AI Super-Resolution API
+  description: >-
+    Backend API for Diebian AI (蝶变 AI), 4K Garden's credit-metered video
+    super-resolution platform. Covers authentication, customer accounts and prepaid
+    credit balances, super-resolution task submission and tracking, output download,
+    a commercial (TVC) production task surface, and enterprise team administration.
+    The OpenAPI is springdoc-generated and served publicly without credentials, but
+    4K Garden publishes no developer portal, reference or authentication documentation
+    for it - so it is a publicly-served first-party contract rather than a documented
+    developer programme.
+  image: http://m.4kgarden.com/images/logo.png
+  humanURL: https://www.fly4k.com/
+  baseURL: https://video-cn.fly4k.com/api
+  tags:
+  - Video
+  - Artificial Intelligence
+  - Video Super Resolution
+  - Media Processing
+  properties:
+  - type: OpenAPI
+    url: openapi/4k-garden-diebian-ai-openapi.json
+  - type: Overlay
+    url: overlays/4k-garden-diebian-ai-overlay.yaml
+  - type: Authentication
+    url: authentication/4k-garden-authentication.yml
+  - type: ErrorCatalog
+    url: errors/4k-garden-problem-types.yml
+  - type: Conventions
+    url: conventions/4k-garden-conventions.yml
+  - type: DataModel
+    url: data-model/4k-garden-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/4k-garden-lifecycle.yml
+  - type: Conformance
+    url: conformance/4k-garden-conformance.yml
+  - type: ToolCrosswalk
+    url: mcp/4k-garden-tool-crosswalk.yml
+  - type: Plans
+    url: plans/4k-garden-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/4k-garden-rate-limits.yml
+  - type: AgentSkill
+    url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +81,43 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.4kgarden.com/
+- type: About
+  url: https://www.4kgarden.com/skabout.html
+- type: Blog
+  url: https://www.4kgarden.com/sknews.html
+- type: Careers
+  url: https://www.4kgarden.com/skjoin.html
+- type: Packages
+  url: packages/4k-garden-packages.yml
+- type: LLMsTxt
+  url: llms/4k-garden-llms.txt
+- type: DomainSecurity
+  url: security/4k-garden-domain-security.yml
+x-notes:
+  website_correction: >-
+    This record was harvested from a Nasdaq Private Market secondary-market venue
+    listing, which left https://www.nasdaqprivatemarket.com/ standing as the company
+    Website pointer. That is the trading venue, not 4K Garden. Corrected on 2026-09-05
+    to the company's own site, https://www.4kgarden.com/ (HTTP 200).
+  pointers_deliberately_absent: >-
+    No DeveloperPortal, Documentation, APIReference, GettingStarted, Support, SignUp,
+    Pricing, TermsOfService, PrivacyPolicy, GitHubOrganization, Roadmap or Postman
+    pointer is emitted, because 4K Garden publishes none of these pages. No WellKnown or
+    SecurityTxt pointer is emitted: every /.well-known/ path 404s on all five hosts
+    probed (see well-known/4k-garden-well-known.yml). No AgentCard pointer is emitted:
+    no agent card was found. No SDKs pointer is emitted: no client library exists in any
+    registry. No MCPServer pointer is emitted: mcp/4k-garden-mcp.yml is a DERIVED
+    candidate with deployment.mode none, and claiming a server that nobody ships would
+    be false. No Idempotency pointer is emitted: idempotency coverage on this API is
+    none, across all 43 mutating operations.
+  host_reachability: >-
+    4kgarden.com and www.4kgarden.com are served from mainland China and are slow from
+    US networks - individual requests intermittently time out at 25-60s and succeed on
+    retry. Timeouts recorded during probing are latency, not absence; every pointer above
+    was confirmed HTTP 200.
+x-enrichment:
+  date: '2026-09-05'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v3

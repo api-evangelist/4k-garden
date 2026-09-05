@@ -1,0 +1,60 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/4k-garden-diebian-ai-openapi.json
+name: 4K Garden (Diebian AI) authentication profile
+description: >-
+  Authentication profile for the Diebian AI super-resolution API. DERIVED from the
+  published OpenAPI plus anonymous probes of the unauthenticated endpoints. The
+  provider publishes no authentication documentation and no developer portal, so this
+  profile is read from the contract's own shape rather than from a docs page.
+api: Diebian AI Super-Resolution API
+schemes: []
+declared_security_schemes: 0
+notes: >-
+  The contract declares NO components.securitySchemes and no operation-level security[]
+  requirement, which is a springdoc default rather than a statement that the API is open.
+  The real mechanism is visible in the contract's own operations and responses.
+observed_mechanism:
+  style: bearer-token
+  confidence: high
+  evidence:
+  - "POST /api/auth/login (operationId loginUsingPOST) returns ApiResponse«LoginResultVo», and LoginResultVo carries a `token` string alongside the `user` object."
+  - "POST /api/auth/login-sms and POST /api/auth/register return the same LoginResultVo shape."
+  - "GET /api/auth/me (operationId meUsingGET) is a current-principal endpoint, the canonical companion to a bearer token."
+  - "All 63 operations declare 401 and 403 responses."
+  header: null
+  header_note: >-
+    The token header name is NOT stated anywhere in the contract or in any public
+    document, and is therefore not asserted here. An integrator would have to read it
+    off the web application's own network traffic.
+credential_issuance:
+  self_service: partial
+  detail: >-
+    Registration exists (POST /api/auth/register) but GET /api/auth/register-config
+    returns {"invite_code_required": true}, so account creation is invite-gated.
+  probed: 'https://video-cn.fly4k.com/api/auth/register-config'
+  status: 200
+factors:
+- type: password
+  operations: [loginUsingPOST, resetPasswordUsingPOST, changePasswordUsingPUT]
+- type: sms-otp
+  operations: [loginSmsUsingPOST, smsCodeUsingPOST, verificationCodeUsingPOST]
+anonymous_endpoints:
+  note: Verified reachable with no credentials on 2026-09-05.
+  endpoints:
+  - path: /api/auth/health
+    status: 200
+  - path: /api/user/credit-rules
+    status: 200
+  - path: /api/user/productList
+    status: 200
+  - path: /api/user/enterprise-plans
+    status: 200
+oauth2: false
+openid_connect: false
+mutual_tls: false
+api_keys: false
+gaps:
+- No securitySchemes declared in the contract.
+- No public authentication documentation of any kind.
+- Token transport header not published.

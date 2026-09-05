@@ -1,0 +1,254 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/4k-garden-diebian-ai-openapi.json
+name: 4K Garden (Diebian AI) data model
+description: Entity-relationship graph for the Diebian AI super-resolution API, DERIVED from the $ref
+  graph and id-reference fields across the 90 component schemas in the published OpenAPI. The provider
+  publishes no object reference, so entity descriptions are not asserted beyond what the contract states.
+  Response-wrapper schemas (the ApiResponse<T> generics) are excluded; only domain entities are modelled.
+api: Diebian AI Super-Resolution API
+entity_count: 60
+wrapper_schema_count: 30
+relationship_count: 35
+core_entities:
+- name: Customer
+  note: The end user principal. Surfaced as CustomerVo, CustomerInfoVo, CustomerBalanceVo, CustomerStatsVo.
+- name: Task
+  note: A video super-resolution job. The central billable object; carries status, progress, cost_credits,
+    cost_rmb and work_duration.
+- name: TvcTask
+  note: A commercial/cinema production task on the separate tvc-controller surface.
+- name: Enterprise
+  note: A team account with members, invitations, member levels and shared credits.
+- name: Order
+  note: A purchase of credits. Surfaced as OrderListVO.
+- name: Consumption
+  note: A credit-spend ledger line, paginated via PagedConsumptionVo.
+- name: Product
+  note: A purchasable credit package. Surfaced as ProductVO; the only entity readable anonymously.
+- name: CreditPackage
+  note: Credit bundle definition. Its catalogue endpoint currently returns HTTP 500.
+- name: MemberPlan
+  note: Membership tier definition. Its catalogue endpoint currently returns HTTP 500.
+entities:
+- ChangeMemberLevelAO
+- ChangePasswordAO
+- ChangePhoneAO
+- Consumption
+- CreateCinemaTaskAO
+- CreateTaskAO
+- CreditPackage
+- CreditPackageListVo
+- CreditRulesVo
+- CustomerBalanceVo
+- CustomerInfoVo
+- CustomerStatsVo
+- CustomerVo
+- EnterpriseBriefVo
+- EnterpriseDetailVo
+- EnterpriseInvitationVo
+- EnterprisePlan
+- EnterprisePlanListVo
+- EnterpriseStatsVo
+- EnterpriseUpgradeResultVo
+- EnterpriseVo
+- FpsRateTierHighVo
+- FpsRateTierVo
+- FpsRatesVo
+- HealthVo
+- InputStream
+- InviteMemberAO
+- LinkmanInfo
+- ListTvcTasksAO
+- LoginAO
+- LoginResultVo
+- LoginSmsAO
+- MemberPlan
+- MemberPlanListVo
+- OrderListVO
+- PagedConsumptionVo
+- PagedTaskVo
+- ProductVO
+- RegisterAO
+- RegisterConfigVo
+- ResetPasswordAO
+- Resource
+- SendCodeAO
+- Task
+- TaskCreateResultVo
+- TaskDetailVo
+- TaskStatsVo
+- TaskUploadResultVo
+- TvcRevisionVo
+- TvcStatsVo
+- TvcTaskCancelAO
+- TvcTaskCreateResultVo
+- TvcTaskDetailVo
+- TvcTaskIdAO
+- TvcTaskListVo
+- TvcTaskReviseAO
+- TvcWorkspaceVo
+- UpdateProfileAO
+- UpgradeEnterpriseAO
+- VerificationCodeVO
+relationships:
+- from: CreateCinemaTaskAO
+  to: LinkmanInfo
+  type: has_one
+  via: linkman_info
+- from: CreditPackageListVo
+  to: CreditPackage
+  type: has_many
+  via: data
+- from: CreditRulesVo
+  to: FpsRatesVo
+  type: has_one
+  via: fps_rates
+- from: CustomerBalanceVo
+  to: EnterpriseBriefVo
+  type: has_one
+  via: enterprise
+- from: CustomerInfoVo
+  to: null
+  type: belongs_to
+  via: enterprise_id
+  note: id-reference field; target inferred by name only
+- from: CustomerVo
+  to: null
+  type: belongs_to
+  via: enterprise_id
+  note: id-reference field; target inferred by name only
+- from: EnterpriseDetailVo
+  to: CustomerVo
+  type: has_many
+  via: members
+- from: EnterpriseDetailVo
+  to: null
+  type: belongs_to
+  via: owner_id
+  note: id-reference field; target inferred by name only
+- from: EnterpriseDetailVo
+  to: EnterpriseInvitationVo
+  type: has_many
+  via: pending_invitations
+- from: EnterpriseInvitationVo
+  to: null
+  type: belongs_to
+  via: enterprise_id
+  note: id-reference field; target inferred by name only
+- from: EnterpriseInvitationVo
+  to: null
+  type: belongs_to
+  via: invitee_id
+  note: id-reference field; target inferred by name only
+- from: EnterpriseInvitationVo
+  to: null
+  type: belongs_to
+  via: inviter_id
+  note: id-reference field; target inferred by name only
+- from: EnterprisePlanListVo
+  to: EnterprisePlan
+  type: has_many
+  via: data
+- from: EnterpriseStatsVo
+  to: EnterpriseVo
+  type: has_one
+  via: enterprise
+- from: EnterpriseStatsVo
+  to: TaskStatsVo
+  type: has_one
+  via: task_stats
+- from: EnterpriseUpgradeResultVo
+  to: EnterpriseVo
+  type: has_one
+  via: enterprise
+- from: EnterpriseUpgradeResultVo
+  to: CustomerVo
+  type: has_one
+  via: user
+- from: EnterpriseVo
+  to: null
+  type: belongs_to
+  via: owner_id
+  note: id-reference field; target inferred by name only
+- from: FpsRatesVo
+  to: FpsRateTierHighVo
+  type: has_one
+  via: high
+- from: FpsRatesVo
+  to: FpsRateTierVo
+  type: has_one
+  via: low
+- from: FpsRatesVo
+  to: FpsRateTierVo
+  type: has_one
+  via: medium
+- from: LoginResultVo
+  to: CustomerVo
+  type: has_one
+  via: user
+- from: MemberPlanListVo
+  to: MemberPlan
+  type: has_many
+  via: data
+- from: PagedConsumptionVo
+  to: Consumption
+  type: has_many
+  via: data
+- from: PagedTaskVo
+  to: Task
+  type: has_many
+  via: tasks
+- from: Resource
+  to: InputStream
+  type: has_one
+  via: inputStream
+- from: TaskCreateResultVo
+  to: null
+  type: belongs_to
+  via: user_id
+  note: id-reference field; target inferred by name only
+- from: TaskUploadResultVo
+  to: null
+  type: belongs_to
+  via: user_id
+  note: id-reference field; target inferred by name only
+- from: TvcTaskCancelAO
+  to: null
+  type: belongs_to
+  via: task_id
+  note: id-reference field; target inferred by name only
+- from: TvcTaskDetailVo
+  to: TvcRevisionVo
+  type: has_many
+  via: revisions
+- from: TvcTaskIdAO
+  to: null
+  type: belongs_to
+  via: task_id
+  note: id-reference field; target inferred by name only
+- from: TvcTaskReviseAO
+  to: null
+  type: belongs_to
+  via: task_id
+  note: id-reference field; target inferred by name only
+- from: TvcWorkspaceVo
+  to: TvcTaskListVo
+  type: has_many
+  via: recent_tasks
+- from: TvcWorkspaceVo
+  to: TvcStatsVo
+  type: has_one
+  via: stats
+- from: UpgradeEnterpriseAO
+  to: null
+  type: belongs_to
+  via: plan_id
+  note: id-reference field; target inferred by name only
+id_prefixes:
+  published: false
+  note: Identifiers are bare int64 values; no prefixed or typed id scheme is used.
+gaps:
+- No published object reference.
+- No id prefixing or typed identifiers.
+- Entity descriptions absent from the contract - every schema carries only a title and property types.

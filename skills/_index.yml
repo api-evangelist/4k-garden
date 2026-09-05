@@ -1,0 +1,30 @@
+generated: '2026-09-05'
+method: generated
+source: openapi/4k-garden-diebian-ai-openapi.json
+name: 4K Garden agent skills
+description: >-
+  Packaged Agent Skills for 4K Garden's Diebian AI super-resolution API. GENERATED from
+  the provider's published OpenAPI contract - every operationId referenced in these
+  skills was verified to exist in openapi/4k-garden-diebian-ai-openapi.json. 4K Garden
+  publishes no skills, no AGENTS.md and no developer documentation of its own; the
+  operating guidance in these files is derived from the contract plus this repository's
+  conventions, errors and lifecycle artifacts.
+api: Diebian AI Super-Resolution API
+skill_count: 2
+skills:
+- name: 4k-garden-upscale-a-video
+  file: 4k-garden-upscale-a-video.md
+  summary: >-
+    The marquee flow: authenticate, price the job against the credit rate bands, rehearse,
+    submit, track to completion, download, and handle cancel/retry/appeal safely.
+  operations: 12
+- name: 4k-garden-manage-enterprise-team
+  file: 4k-garden-manage-enterprise-team.md
+  summary: >-
+    Team administration: upgrade to an enterprise account, invite and remove members, set
+    member levels, and audit shared credit spend.
+  operations: 12
+safety_notes:
+- No idempotency exists on any mutating operation; both skills instruct a read-before-retry check rather than a blind retry.
+- No reversal window is published for any reversal operation; neither skill asserts one.
+- The authentication header name is not published; both skills say so rather than assuming Authorization.

@@ -1,0 +1,55 @@
+generated: '2026-09-05'
+method: derived
+source: mcp/4k-garden-mcp.yml, openapi/4k-garden-diebian-ai-openapi.json
+name: 4K Garden (Diebian AI) tool crosswalk
+description: >-
+  Binding between the DERIVED MCP candidate tool surface and the backing OpenAPI
+  operations. Because the MCP surface is a candidate rather than a shipped server,
+  every binding is exact by construction - each tool was defined from the operation it
+  names. The value of this file is the rest_only[] section, which records how much of
+  the published contract has no agent-facing projection.
+api: Diebian AI Super-Resolution API
+surfaces:
+  openapi:
+    path: openapi/4k-garden-diebian-ai-openapi.json
+    operations: 63
+    gated: false
+    note: The contract is served anonymously; the operations it describes are not.
+  mcp:
+    url: null
+    gated: null
+    note: No MCP server is published. Tools are derived candidates.
+  graphql:
+    endpoint: null
+    note: No GraphQL surface found.
+crosswalk:
+- {tool: list_products, category: catalog, rest: [productListUsingGET], binding: exact, confidence: high}
+- {tool: get_credit_rules, category: catalog, rest: [getCreditRulesUsingGET], binding: exact, confidence: high}
+- {tool: get_balance, category: account, rest: [getBalanceUsingGET], binding: exact, confidence: high}
+- {tool: create_upscale_task, category: task, rest: [createTaskUploadUsingPOST], binding: exact, confidence: high}
+- {tool: rehearse_upscale_task, category: task, rest: [createTaskUploadTestUsingPOST], binding: exact, confidence: high}
+- {tool: list_tasks, category: task, rest: [listTasksUsingGET], binding: exact, confidence: high}
+- {tool: get_task, category: task, rest: [getTaskUsingGET], binding: exact, confidence: high}
+- {tool: cancel_task, category: task, rest: [cancelTaskUsingPOST], binding: exact, confidence: high}
+- {tool: retry_task, category: task, rest: [retryTaskUsingPOST], binding: exact, confidence: high}
+- {tool: create_download, category: delivery, rest: [createDownloadUsingPOST], binding: exact, confidence: high}
+- {tool: list_consumption, category: billing, rest: [getConsumptionUsingGET], binding: exact, confidence: high}
+- {tool: create_tvc_task, category: tvc, rest: [createTaskUsingPOST_1], binding: exact, confidence: high}
+- {tool: list_tvc_tasks, category: tvc, rest: [listTasksUsingPOST], binding: exact, confidence: high}
+mcp_only: []
+rest_only:
+- {category: auth, note: "Credential operations - login, login-sms, register, reset-password, sms-code, verificationCode, me - deliberately excluded from an agent tool surface.", operations: 9}
+- {category: enterprise, note: "Team administration - invite, accept, reject, remove member, change member level, upgrade, stats - excluded; these are consequential organisational writes with no reversal window published.", operations: 9}
+- {category: frontend, note: "Static-route handlers emitted into the contract by the framework (/api/, /api/{filename}, /api/*.html, /api/css/**, /api/js/**, /api/images/**, /api/login, /api/dashboard, /api/landing, /api/enterprise). These are not API operations at all and should not be in the contract.", operations: 10}
+- {category: account, note: "Profile mutation - change password, change phone, bind salesperson, appeal - excluded from the candidate surface.", operations: 8}
+coverage:
+  rest_operations_total: 63
+  rest_operations_mapped: 13
+  rest_operations_unmapped: 50
+  mcp_tools_total: 13
+  mcp_tools_unmapped: 0
+  note: >-
+    Mapped coverage is deliberately narrow: 10 of the 50 unmapped operations are
+    framework static-route noise rather than real API operations, and the remainder are
+    credential or organisational writes that should not be handed to an agent without a
+    published reversal window.

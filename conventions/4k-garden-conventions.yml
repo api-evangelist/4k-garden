@@ -1,0 +1,134 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/4k-garden-diebian-ai-openapi.json
+name: 4K Garden (Diebian AI) API conventions
+description: >-
+  Cross-cutting runtime semantics for the Diebian AI super-resolution API, DERIVED from
+  the published OpenAPI and anonymous probes. The provider publishes no conventions or
+  developer documentation, so every field below is read from the contract itself.
+api: Diebian AI Super-Resolution API
+auth_style:
+  style: bearer-token
+  documented: false
+  see: authentication/4k-garden-authentication.yml
+idempotency:
+  coverage: none
+  supported: false
+  header: null
+  scope: []
+  evidence: >-
+    No Idempotency-Key or equivalent header appears on any of the 63 operations, and no
+    request body carries a client-supplied dedupe token. Of the 43 mutating operations
+    (POST/PUT/DELETE), none declares replay protection. A retried task-creation call
+    (POST /api/user/tasks/upload, POST /api/tvc/task/create) would be charged twice.
+  note: >-
+    This matters more than usual here because task creation debits a prepaid credit
+    balance, so an ambiguous timeout has a direct billing consequence.
+reversibility:
+  grade: documented
+  coverage: partial
+  note: >-
+    Reversal operations exist and are named in the contract, but NO time window or
+    state precondition is published for any of them. Grade is `documented`, not
+    `verified`, because no window is stated anywhere. Windows are deliberately not
+    asserted below - inventing one here could cost a user real money.
+  surfaces:
+  - write_operation: createTaskUploadUsingPOST
+    path: /api/user/tasks/upload
+    reversal_operation: cancelTaskUsingPOST
+    reversal_path: /api/user/tasks/{taskId}/cancel
+    window: null
+    window_documented: false
+  - write_operation: createTaskUploadUsingPOST
+    path: /api/user/tasks/upload
+    reversal_operation: appealTaskUsingPOST
+    reversal_path: /api/user/tasks/appeal
+    window: null
+    window_documented: false
+    note: An appeal is a dispute path over a completed task, not a cancellation.
+  - write_operation: createTaskUsingPOST_1
+    path: /api/tvc/task/create
+    reversal_operation: cancelTaskUsingPOST_1
+    reversal_path: /api/tvc/task/cancel
+    window: null
+    window_documented: false
+  - write_operation: createTaskUsingPOST_1
+    path: /api/tvc/task/create
+    reversal_operation: reviseTaskUsingPOST
+    reversal_path: /api/tvc/task/revise
+    window: null
+    window_documented: false
+    note: Revision resubmits a delivered TVC task rather than reversing the charge.
+  - write_operation: inviteMemberUsingPOST
+    path: /api/enterprise/{enterpriseId}/invite
+    reversal_operation: rejectInvitationUsingPOST
+    reversal_path: /api/enterprise/invitations/{invitationId}/reject
+    window: null
+    window_documented: false
+  - write_operation: acceptInvitationUsingPOST
+    path: /api/enterprise/invitations/{invitationId}/accept
+    reversal_operation: removeMemberUsingDELETE
+    reversal_path: /api/enterprise/{enterpriseId}/members/{memberUserId}
+    window: null
+    window_documented: false
+  irreversible:
+  - operation: retryTaskUsingPOST
+    path: /api/user/tasks/{taskId}/retry
+    note: >-
+      Re-runs a task. No documentation states whether a retry re-debits credits, which
+      is the single most consequential undocumented behaviour on this surface.
+dry_run_mode:
+  supported: partial
+  evidence: >-
+    POST /api/user/tasks/uploadTest (operationId createTaskUploadTestUsingPOST) exists alongside
+    the production POST /api/user/tasks/upload, and is the only rehearsal affordance on
+    the surface. Its semantics are undocumented.
+pagination:
+  style: page-number
+  documented: false
+  request_params:
+  - name: page
+    in: query
+  - name: page_size
+    in: query
+  response_fields:
+  - page
+  - page_size
+  - total
+  evidence: >-
+    PagedTaskVo and PagedConsumptionVo both carry page, page_size and total. Applied to
+    GET /api/user/tasks and GET /api/user/consumption.
+  cursor_support: false
+versioning:
+  scheme: path-prefix-absent
+  current_version: 3.0.0
+  evidence: >-
+    info.version is 3.0.0 and GET /api/auth/health returns {"version":"3.0.0"}. There is
+    no version segment in any path - every route is /api/<resource>, so there is no way
+    to pin a version from the client side.
+  see: lifecycle/4k-garden-lifecycle.yml
+error_envelope:
+  shape: '{code, msg, data}'
+  rfc9457: false
+  see: errors/4k-garden-problem-types.yml
+rate_limit_signaling:
+  headers_documented: false
+  headers_observed: none
+  evidence: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header was present on any anonymous
+    200 response observed on 2026-09-05. No 429 is declared on any operation.
+  see: rate-limits/4k-garden-rate-limits.yml
+request_id_tracing:
+  supported: false
+  evidence: No correlation, request-id or trace header is declared or observed.
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata_fields:
+  supported: false
+content_negotiation:
+  note: >-
+    Every operation declares the wildcard media type '*/*' for its response content
+    rather than application/json, which is a springdoc default and tells a client
+    nothing. Responses observed in practice are application/json.

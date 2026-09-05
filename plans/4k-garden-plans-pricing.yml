@@ -1,0 +1,80 @@
+generated: '2026-09-05'
+method: probed
+source: 'https://video-cn.fly4k.com/api/user/productList'
+name: 4K Garden (Diebian AI) plans and pricing
+description: >-
+  Commercial plans for the Diebian AI super-resolution platform, READ FROM the
+  provider's own machine-readable product catalogue endpoint rather than a marketing
+  page. GET /api/user/productList answered 200 anonymously on 2026-09-05 and returned
+  the four products below verbatim. Prices are in CNY. The platform is credit-metered:
+  a purchase converts money into "water crystals" (水晶) which are then spent per minute
+  of video super-resolved, at a rate that varies with output frame rate.
+api: Diebian AI Super-Resolution API
+currency: CNY
+billing_model: prepaid-credits
+plan_count: 4
+plans:
+- id: 18
+  name: 体验会员
+  name_en: Trial membership
+  price: 99.00
+  currency: CNY
+  billing_period: one-time
+  included_quota: 15000 credits
+  validity: 31 days
+  limits:
+  - Limit one purchase per person.
+  - Purchase confers membership status.
+- id: 15
+  name: 标准会员
+  name_en: Standard membership
+  price: 500.00
+  currency: CNY
+  billing_period: one-time
+  included_quota: 50000 credits
+  equivalent: approximately 33 minutes of super-resolution at 30fps
+  validity: valid for the duration of membership
+- id: 16
+  name: 标准会员
+  name_en: Standard membership (mid tier)
+  price: 2500.00
+  currency: CNY
+  billing_period: one-time
+  included_quota: 275000 credits
+  bonus: 25000 promotional bonus credits included
+  equivalent: approximately 183 minutes of super-resolution at 30fps
+- id: 17
+  name: 标准会员
+  name_en: Standard membership (top tier)
+  price: 10000.00
+  currency: CNY
+  billing_period: one-time
+  included_quota: 1200000 credits
+  bonus: 200000 promotional bonus credits included
+  equivalent: approximately 800 minutes of super-resolution at 30fps
+metering:
+  source: 'https://video-cn.fly4k.com/api/user/credit-rules'
+  probed_status: 200
+  credit_rate: 100.0
+  rates_by_output_fps:
+  - band: low
+    max_fps: 30
+    rate: 25
+  - band: medium
+    max_fps: 60
+    rate: 50
+  - band: high
+    min_fps: 61
+    rate: 100
+enterprise:
+  endpoint: /api/user/enterprise-plans
+  probed_status: 200
+  plan_count: 0
+  note: >-
+    The enterprise plan catalogue endpoint answers 200 with an empty array, so no
+    enterprise tier is published even though the API carries a full enterprise
+    membership, invitation and shared-credit surface.
+gaps:
+- No human-readable pricing page was found; the only public pricing surface is the JSON catalogue endpoint.
+- Two adjacent catalogue endpoints (member-plans, credit-packages) return HTTP 500.
+- No overage policy is published.

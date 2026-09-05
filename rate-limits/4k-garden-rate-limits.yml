@@ -1,0 +1,35 @@
+generated: '2026-09-05'
+method: probed
+source: 'https://video-cn.fly4k.com/api/auth/health'
+name: 4K Garden (Diebian AI) rate limits
+description: >-
+  Rate-limit posture for the Diebian AI super-resolution API. The provider publishes no
+  developer documentation, so there is no documented limit to record. This file reports
+  a measured absence: response headers were inspected on live anonymous 200 responses
+  and carried no rate-limit signal of any kind.
+api: Diebian AI Super-Resolution API
+limit_count: 0
+documented: false
+limits: []
+response_headers:
+  observed: []
+  x_ratelimit_family: absent
+  ratelimit_family: absent
+  retry_after: absent
+  note: >-
+    Anonymous 200 responses from /api/auth/health, /api/user/credit-rules,
+    /api/user/productList and /api/user/enterprise-plans were inspected on 2026-09-05.
+    The only notable response header is `server: Tengine`. No throttling signal is
+    emitted, so an agent has no runtime way to back off before being cut off.
+exhaustion_status_code: null
+exhaustion_note: >-
+  No 429 response is declared on any of the 63 operations in the contract.
+throttling_surrogate:
+  note: >-
+    The commercial constraint on this API is the prepaid credit balance rather than a
+    request-rate limit. GET /api/user/balance and the credit rates in
+    plans/4k-garden-plans-pricing.yml are the effective quota surface.
+gaps:
+- No published rate limits.
+- No rate-limit response headers.
+- No 429 declared in the contract.

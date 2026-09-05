@@ -1,0 +1,65 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/4k-garden-diebian-ai-openapi.json
+name: 4K Garden (Diebian AI) error catalog
+description: >-
+  Error surface for the Diebian AI super-resolution API, DERIVED from the responses
+  declared on all 63 operations in the published OpenAPI and from anonymous probes of
+  the live endpoints. The provider publishes no error reference page.
+api: Diebian AI Super-Resolution API
+format: custom-envelope
+rfc9457: false
+envelope:
+  schema: ApiResponse
+  media_type: '*/*'
+  fields:
+  - name: code
+    type: integer
+    meaning: Application status code. 0 signals success on every observed 200 response.
+  - name: msg
+    type: string
+    meaning: Human-readable message. 'success' on the success path.
+  - name: data
+    type: object
+    meaning: The payload; null or empty on the failure path.
+  note: >-
+    The envelope is uniform across the surface - every response schema in the contract is
+    an ApiResponse or a generic specialisation of it (ApiResponse<TaskDetailVo> and so on).
+    It is NOT application/problem+json and carries no `type`, `title`, `detail` or
+    `instance` member, so it is not RFC 9457 compliant.
+problem_types:
+- status: 401
+  title: Unauthorized
+  declared_on_operations: 63
+  method: derived
+  remediation: Obtain a token from POST /api/auth/login or POST /api/auth/login-sms and resend.
+- status: 403
+  title: Forbidden
+  declared_on_operations: 63
+  method: derived
+  remediation: >-
+    The principal is authenticated but lacks rights for the resource - typically an
+    enterprise operation attempted by a member without the required level.
+- status: 404
+  title: Not Found
+  declared_on_operations: 60
+  method: derived
+  remediation: Verify the taskId, enterpriseId, invitationId or memberUserId path parameter.
+- status: 500
+  title: Internal Server Error
+  declared_on_operations: 0
+  method: probed
+  observed_at: 'https://video-cn.fly4k.com/api/user/member-plans'
+  observed_status: 500
+  remediation: Retry; the failure is server-side and not caused by the request.
+  note: >-
+    Not declared anywhere in the contract, but returned in practice. Two catalogue
+    endpoints answered 500 on 2026-09-05 with a raw server-side exception string
+    serialised into the `msg` field instead of a safe message. Leaking internal
+    implementation detail into a client-visible error field is a defect worth reporting
+    to the provider; the leaked content is deliberately not reproduced here.
+gaps:
+- No published error reference.
+- No application-level error code registry - `code` is documented only as an integer.
+- 500 responses are undeclared in the contract.
+- Error bodies are not application/problem+json.

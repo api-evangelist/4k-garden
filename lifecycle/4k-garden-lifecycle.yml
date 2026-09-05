@@ -1,0 +1,55 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/4k-garden-diebian-ai-openapi.json
+name: 4K Garden (Diebian AI) lifecycle
+description: >-
+  Versioning, deprecation and operational-transparency posture for the Diebian AI
+  super-resolution API. DERIVED from the contract plus probes; the provider publishes
+  no versioning policy, no deprecation policy, no SLA and no status page.
+api: Diebian AI Super-Resolution API
+versioning:
+  scheme: none-in-path
+  current_version: 3.0.0
+  version_source: info.version, corroborated by GET /api/auth/health
+  policy_published: false
+  note: >-
+    No version segment appears in any of the 58 paths. A client cannot pin a version,
+    so any breaking change ships to every caller at once.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  deprecated_operation_count: 0
+  note: >-
+    No operation in the contract carries `deprecated: true`, and no deprecation or
+    sunset policy is published anywhere.
+status_page:
+  published: false
+  url: null
+  note: >-
+    No status page was found on any 4K Garden or fly4k host. The API does expose
+    GET /api/auth/health (operationId healthUsingGET), which answered 200 with
+    {"status":"ok","version":"3.0.0"} anonymously on 2026-09-05 - a health probe is not
+    a status page, but it is the only availability signal a consumer has.
+  health_endpoint: 'https://video-cn.fly4k.com/api/auth/health'
+  health_probed_status: 200
+sla:
+  published: false
+environments:
+- name: production
+  host: video-cn.fly4k.com
+  note: The host the production web application calls; named in servers[] as www.fly4k.com.
+- name: test
+  host: tst-fly4k.4kgarden.com
+  note: >-
+    Serves an identical copy of the contract with servers[] rewritten to its own host.
+    This is not an advertised sandbox - it is an internal test environment that happens
+    to be publicly reachable. It is recorded here as an environment observation, not as
+    a supported sandbox.
+gaps:
+- No status page.
+- No deprecation or sunset policy.
+- No SLA.
+- No versioned request path.

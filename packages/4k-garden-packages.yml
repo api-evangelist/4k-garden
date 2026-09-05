@@ -1,0 +1,40 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  registry.npmjs.org search, pypi.org, api.github.com org + repository search, and the
+  4kgarden.com and fly4k.com sites
+name: 4K Garden client libraries
+description: >-
+  4K Garden publishes NO client libraries. This file records a measured absence, not an
+  unchecked gap. No SDKs pointer is emitted in apis.yml because there is no SDK.
+api: Diebian AI Super-Resolution API
+package_count: 0
+official_package_count: 0
+packages: []
+registries_searched:
+- registry: npm
+  query: '4kgarden'
+  endpoint: 'https://registry.npmjs.org/-/v1/search?text=4kgarden'
+  results: 0
+  checked: '2026-09-05'
+- registry: pypi
+  query: '4kgarden'
+  endpoint: 'https://pypi.org/pypi/4kgarden/json'
+  status: 404
+  results: 0
+  checked: '2026-09-05'
+- registry: github
+  query: 'orgs 4kgarden, 4k-garden, fly4k; repository search 4kgarden'
+  status: 404
+  results: 0
+  checked: '2026-09-05'
+  note: No GitHub organisation exists under any of the three plausible names, and repository search returned zero hits.
+distribution_note: >-
+  The Diebian AI API is consumed only by the company's own Vue single-page application
+  at www.fly4k.com, which calls it directly over XHR with a relative /api base. There is
+  no packaged client of any kind - no npm module, no CDN build, no pinned script tag -
+  so there is no version or publication date to record for anything.
+gaps:
+- No first-party SDK in any language.
+- No GitHub organisation.
+- No published client of any kind for a 63-operation API.

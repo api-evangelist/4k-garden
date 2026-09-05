@@ -1,0 +1,133 @@
+generated: '2026-09-05'
+method: probed
+source: direct HTTP probe of each host known to this record
+name: 4K Garden well-known discovery probe
+description: >-
+  Probe of the RFC 8615 /.well-known/ namespace across every host this record knows:
+  the registrable domain and www, the mobile site, the OTT service host, the Diebian AI
+  product host, and the API host named in the OpenAPI servers[] block. Every documented
+  path is absent. No WellKnown or SecurityTxt pointer is emitted in apis.yml, because
+  nothing here was served - this file records a measured absence, not a capability.
+hosts:
+- host: www.4kgarden.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: 4kgarden.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+- host: m.4kgarden.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: ott.tserv.4kgarden.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: www.fly4k.com
+  note: >-
+    This host is a Vue single-page application whose server answers HTTP 200 with the
+    same 713-byte HTML app shell for EVERY path, including every /.well-known/ path and
+    /openapi.json. These are catch-all responses, not documents. Recorded as misses.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    result: soft-404 SPA shell, not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    result: soft-404 SPA shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    result: soft-404 SPA shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    result: soft-404 SPA shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    result: soft-404 SPA shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    result: soft-404 SPA shell, not a document
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    result: soft-404 SPA shell, not a document
+summary:
+  hosts_probed: 5
+  documents_served: 0
+  agent_card_found: false
+  security_txt_found: false

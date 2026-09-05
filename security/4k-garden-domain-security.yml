@@ -1,0 +1,31 @@
+generated: '2026-09-05'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.4kgarden.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Oct 15 23:59:59 2026 GMT
+  hsts: false
+- host: www.fly4k.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Nov 21 23:59:59 2026 GMT
+  hsts: false
+- host: video-cn.fly4k.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 21 23:59:59 2026 GMT
+  hsts: false
+domains:
+- domain: 4kgarden.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: fly4k.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false

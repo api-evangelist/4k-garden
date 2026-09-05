@@ -1,0 +1,88 @@
+overlay: 1.0.0
+info:
+  title: 4K Garden Diebian AI enhancements
+  version: 1.0.0
+x-provenance:
+  generated: '2026-09-05'
+  method: generated
+  source: openapi/4k-garden-diebian-ai-openapi.json
+  note: >-
+    OpenAPI Overlay 1.0.0 capturing API Evangelist enhancements to 4K Garden's published
+    contract. The original spec is never mutated. Every action below adds description or
+    metadata that the springdoc-generated original omits; none of them invents behaviour.
+    The actions are limited to facts established elsewhere in this repository and
+    evidenced there.
+extends: ../openapi/4k-garden-diebian-ai-openapi.json
+actions:
+- target: $.info
+  description: Identify the operating company behind the product name.
+  update:
+    contact:
+      name: 4K Garden (Sikai Garden Network Technology (Guangzhou) Co., Ltd.)
+      email: bd@4kgarden.com
+      url: https://www.4kgarden.com/
+- target: $.info
+  description: Record that the contract is served publicly but has no accompanying documentation.
+  update:
+    x-api-evangelist-note: >-
+      Springdoc-generated backend contract for the Diebian AI super-resolution web
+      application. Publicly served without credentials at
+      https://video-cn.fly4k.com/api/v3/api-docs. The provider publishes no developer
+      portal, reference or authentication documentation for it.
+- target: $.servers
+  description: Record the observed production API host alongside the framework-inferred server.
+  update:
+  - url: https://video-cn.fly4k.com
+    description: >-
+      Production host observed answering this contract's operations. The original
+      servers[] entry (http://www.fly4k.com:80) is a springdoc "Inferred Url" derived
+      from the request that fetched the document, and names the web front end over
+      plaintext HTTP rather than the API host.
+- target: $
+  description: Declare the bearer-token scheme the contract omits.
+  update:
+    components:
+      securitySchemes:
+        bearerToken:
+          type: http
+          scheme: bearer
+          description: >-
+            DERIVED, not declared by the provider. POST /api/auth/login returns
+            LoginResultVo with a `token` string, GET /api/auth/me is the
+            current-principal endpoint, and all 63 operations declare 401 and 403. The
+            transport header name is NOT published; do not assume Authorization without
+            confirming against the application's own traffic.
+- target: $.paths['/api/user/tasks/upload'].post
+  description: Flag the billing consequence and the absence of replay protection.
+  update:
+    x-consequence: billable
+    x-idempotency: none
+    x-api-evangelist-note: >-
+      Debits the prepaid credit balance. No Idempotency-Key mechanism exists, so a retry
+      after an ambiguous timeout is charged again. A rehearsal endpoint exists at
+      /api/user/tasks/uploadTest.
+- target: $.paths['/api/user/tasks/{taskId}/cancel'].post
+  description: Record this as the reversal path for task creation.
+  update:
+    x-reverses: createTaskUploadUsingPOST
+    x-reversal-window: unpublished
+- target: $.paths['/api/user/tasks/{taskId}/retry'].post
+  description: Flag the undocumented re-billing behaviour.
+  update:
+    x-consequence: potentially-billable
+    x-api-evangelist-note: >-
+      No public documentation states whether a retry re-debits credits. Treat as
+      billable until the provider confirms otherwise.
+- target: $.paths['/api/tvc/task/cancel'].post
+  description: Record this as the reversal path for TVC task creation.
+  update:
+    x-reverses: createTaskUsingPOST_1
+    x-reversal-window: unpublished
+- target: $.components.schemas.ApiResponse
+  description: Document the uniform response envelope the contract leaves undescribed.
+  update:
+    description: >-
+      Uniform response envelope used by every operation. `code` is 0 on success; `msg`
+      is "success" on the success path and carries the failure message otherwise; `data`
+      holds the payload. This is not RFC 9457 - there is no type, title, detail or
+      instance member.

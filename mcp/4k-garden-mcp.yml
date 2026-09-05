@@ -1,0 +1,84 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/4k-garden-diebian-ai-openapi.json
+name: 4K Garden (Diebian AI) MCP candidate
+description: >-
+  4K Garden publishes NO Model Context Protocol server. Searched the company site, the
+  Diebian AI product site, npm, PyPI and GitHub and found no hosted endpoint and no
+  installable package. The tools below are a DERIVED candidate surface, mapped from
+  operations that actually exist in the published OpenAPI, so that the agent-facing
+  shape of this API is recorded. They are a proposal, not something anyone can call.
+api: Diebian AI Super-Resolution API
+status: candidate
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: derived
+  note: >-
+    No MCP server exists. No endpoint URL is asserted here - guessing one that happened
+    to answer would read as a verified agent surface, which would be false.
+tools:
+- name: list_products
+  description: List purchasable credit packages and their prices.
+  rest: [productListUsingGET]
+  auth_required: false
+- name: get_credit_rules
+  description: Read the credit consumption rate bands by output frame rate.
+  rest: [getCreditRulesUsingGET]
+  auth_required: false
+- name: get_balance
+  description: Read the caller's remaining credit balance.
+  rest: [getBalanceUsingGET]
+  auth_required: true
+- name: create_upscale_task
+  description: Submit a video for AI super-resolution, specifying the output resolution.
+  rest: [createTaskUploadUsingPOST]
+  auth_required: true
+  consequence: billable
+- name: rehearse_upscale_task
+  description: Submit a test super-resolution task without committing the production job.
+  rest: [createTaskUploadTestUsingPOST]
+  auth_required: true
+- name: list_tasks
+  description: List the caller's super-resolution tasks, paginated.
+  rest: [listTasksUsingGET]
+  auth_required: true
+- name: get_task
+  description: Read one task's status, progress and cost.
+  rest: [getTaskUsingGET]
+  auth_required: true
+- name: cancel_task
+  description: Cancel a super-resolution task.
+  rest: [cancelTaskUsingPOST]
+  auth_required: true
+  consequence: reversal
+- name: retry_task
+  description: Re-run a failed super-resolution task.
+  rest: [retryTaskUsingPOST]
+  auth_required: true
+  consequence: potentially-billable
+- name: create_download
+  description: Create a download for a completed task's output.
+  rest: [createDownloadUsingPOST]
+  auth_required: true
+- name: list_consumption
+  description: List the credit-spend ledger, paginated.
+  rest: [getConsumptionUsingGET]
+  auth_required: true
+- name: create_tvc_task
+  description: Create a commercial (TVC) production task.
+  rest: [createTaskUsingPOST_1]
+  auth_required: true
+  consequence: billable
+- name: list_tvc_tasks
+  description: List commercial production tasks in the workspace.
+  rest: [listTasksUsingPOST]
+  auth_required: true
+tool_count: 13
+caveats:
+- Input schemas are derived from the OpenAPI operations, not from a live tools/list call - no server exists to introspect.
+- The token header name required to authenticate any of these is not published by the provider.
+- No idempotency mechanism exists, so a retried billable tool call would be charged twice.
