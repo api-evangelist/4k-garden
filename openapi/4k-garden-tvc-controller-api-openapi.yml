@@ -1,0 +1,540 @@
+openapi: 3.2.0
+info:
+  title: 蝶变AI超分系统 Tvc Controller API
+  description: 蝶变AI超分系统后端API文档 - Spring Boot 2.5
+  version: 3.0.0
+servers:
+- url: http://www.fly4k.com:80
+  description: Inferred Url
+tags:
+- name: tvc-controller
+  extensions:
+    x-order: '2147483647'
+paths:
+  /api/tvc/task/cancel:
+    post:
+      tags:
+      - tvc-controller
+      summary: cancelTask
+      operationId: cancelTaskUsingPOST_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TvcTaskCancelAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Map_string_object'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/tvc/task/confirm:
+    post:
+      tags:
+      - tvc-controller
+      summary: confirmTask
+      operationId: confirmTaskUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TvcTaskIdAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Map_string_object'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/tvc/task/create:
+    post:
+      tags:
+      - tvc-controller
+      summary: createTask
+      operationId: createTaskUsingPOST_1
+      parameters:
+      - name: category
+        in: query
+        description: category
+        required: true
+        style: form
+        schema:
+          type: string
+      - name: title
+        in: query
+        description: title
+        required: true
+        style: form
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: description
+        required: false
+        style: form
+        schema:
+          type: string
+      - name: reference_url
+        in: query
+        description: reference_url
+        required: false
+        style: form
+        schema:
+          type: string
+      - name: is_urgent
+        in: query
+        description: is_urgent
+        required: false
+        style: form
+        schema:
+          type: boolean
+      - name: linkman_info
+        in: query
+        description: linkman_info
+        required: false
+        style: form
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              format: binary
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_TvcTaskCreateResultVo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/tvc/task/create-cinema:
+    post:
+      tags:
+      - tvc-controller
+      summary: createCinemaTask
+      operationId: createCinemaTaskUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCinemaTaskAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_TvcTaskCreateResultVo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/tvc/task/detail:
+    post:
+      tags:
+      - tvc-controller
+      summary: taskDetail
+      operationId: taskDetailUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TvcTaskIdAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_TvcTaskDetailVo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/tvc/task/list:
+    post:
+      tags:
+      - tvc-controller
+      summary: listTasks
+      operationId: listTasksUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListTvcTasksAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Map_string_object'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/tvc/task/revise:
+    post:
+      tags:
+      - tvc-controller
+      summary: reviseTask
+      operationId: reviseTaskUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TvcTaskReviseAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Map_string_object'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/tvc/workspace:
+    post:
+      tags:
+      - tvc-controller
+      summary: workspace
+      operationId: workspaceUsingPOST
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_TvcWorkspaceVo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+components:
+  schemas:
+    CreateCinemaTaskAO:
+      title: CreateCinemaTaskAO
+      type: object
+      properties:
+        duration:
+          type: number
+          format: bigdecimal
+        linkman_info:
+          $ref: '#/components/schemas/LinkmanInfo'
+        title:
+          type: string
+    TvcTaskCancelAO:
+      title: TvcTaskCancelAO
+      type: object
+      properties:
+        cancel_reason:
+          type: string
+        task_id:
+          type: integer
+          format: int64
+    ApiResponse_TvcWorkspaceVo:
+      title: ApiResponse«TvcWorkspaceVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/TvcWorkspaceVo'
+        msg:
+          type: string
+    ListTvcTasksAO:
+      title: ListTvcTasksAO
+      type: object
+      properties:
+        page:
+          type: integer
+          format: int32
+        page_size:
+          type: integer
+          format: int32
+        status:
+          type: string
+    TvcTaskDetailVo:
+      title: TvcTaskDetailVo
+      type: object
+      properties:
+        accepted_at:
+          type: string
+        category:
+          type: string
+        completed_at:
+          type: string
+        cost_credits:
+          type: number
+          format: bigdecimal
+        created_at:
+          type: string
+        description:
+          type: string
+        discount_rate:
+          type: number
+          format: bigdecimal
+        id:
+          type: integer
+          format: int64
+        is_urgent:
+          type: boolean
+        linkman_info:
+          type: string
+        reference_url:
+          type: string
+        result_url:
+          type: string
+        review_deadline:
+          type: string
+        revision_count:
+          type: integer
+          format: int32
+        revisions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TvcRevisionVo'
+        source_url:
+          type: string
+        status:
+          type: string
+        task_no:
+          type: string
+        title:
+          type: string
+        unit_price:
+          type: integer
+          format: int32
+        video_duration:
+          type: number
+          format: bigdecimal
+        video_fps:
+          type: number
+          format: bigdecimal
+        video_name:
+          type: string
+        video_resolution:
+          type: string
+        video_size:
+          type: number
+          format: bigdecimal
+    TvcTaskCreateResultVo:
+      title: TvcTaskCreateResultVo
+      type: object
+      properties:
+        cost_credits:
+          type: number
+          format: bigdecimal
+        task_no:
+          type: string
+        video_duration:
+          type: number
+          format: bigdecimal
+        video_fps:
+          type: number
+          format: bigdecimal
+        video_resolution:
+          type: string
+    ApiResponse_TvcTaskDetailVo:
+      title: ApiResponse«TvcTaskDetailVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/TvcTaskDetailVo'
+        msg:
+          type: string
+    LinkmanInfo:
+      title: LinkmanInfo
+      type: object
+      properties:
+        company:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        wechat:
+          type: string
+    ApiResponse_TvcTaskCreateResultVo:
+      title: ApiResponse«TvcTaskCreateResultVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/TvcTaskCreateResultVo'
+        msg:
+          type: string
+    ApiResponse_Map_string_object:
+      title: ApiResponse«Map«string,object»»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          type: object
+        msg:
+          type: string
+    TvcRevisionVo:
+      title: TvcRevisionVo
+      type: object
+      properties:
+        created_at:
+          type: string
+        customer_feedback:
+          type: string
+        result_url:
+          type: string
+        revision_no:
+          type: integer
+          format: int32
+    TvcStatsVo:
+      title: TvcStatsVo
+      type: object
+      properties:
+        completed_count:
+          type: integer
+          format: int64
+        pending_count:
+          type: integer
+          format: int64
+        producing_count:
+          type: integer
+          format: int64
+        reviewing_count:
+          type: integer
+          format: int64
+    TvcTaskListVo:
+      title: TvcTaskListVo
+      type: object
+      properties:
+        category:
+          type: string
+        cost_credits:
+          type: number
+          format: bigdecimal
+        created_at:
+          type: string
+        id:
+          type: integer
+          format: int64
+        is_urgent:
+          type: boolean
+        review_deadline:
+          type: string
+        status:
+          type: string
+        task_no:
+          type: string
+        title:
+          type: string
+        video_duration:
+          type: number
+          format: bigdecimal
+    TvcWorkspaceVo:
+      title: TvcWorkspaceVo
+      type: object
+      properties:
+        frozen_credits:
+          type: number
+          format: bigdecimal
+        member_expire:
+          type: string
+        member_level:
+          type: string
+        recent_tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/TvcTaskListVo'
+        stats:
+          $ref: '#/components/schemas/TvcStatsVo'
+    TvcTaskIdAO:
+      title: TvcTaskIdAO
+      type: object
+      properties:
+        task_id:
+          type: integer
+          format: int64
+    TvcTaskReviseAO:
+      title: TvcTaskReviseAO
+      type: object
+      properties:
+        feedback:
+          type: string
+        task_id:
+          type: integer
+          format: int64

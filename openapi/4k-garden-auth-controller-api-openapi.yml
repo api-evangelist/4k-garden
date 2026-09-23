@@ -1,0 +1,651 @@
+openapi: 3.2.0
+info:
+  title: 蝶变AI超分系统 Auth Controller API
+  description: 蝶变AI超分系统后端API文档 - Spring Boot 2.5
+  version: 3.0.0
+servers:
+- url: http://www.fly4k.com:80
+  description: Inferred Url
+tags:
+- name: auth-controller
+  extensions:
+    x-order: '2147483647'
+paths:
+  /api/auth/health:
+    get:
+      tags:
+      - auth-controller
+      summary: health
+      operationId: healthUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_HealthVo'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/auth/login:
+    post:
+      tags:
+      - auth-controller
+      summary: login
+      operationId: loginUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_LoginResultVo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/auth/login-sms:
+    post:
+      tags:
+      - auth-controller
+      summary: loginSms
+      operationId: loginSmsUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginSmsAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_LoginResultVo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/auth/me:
+    get:
+      tags:
+      - auth-controller
+      summary: me
+      operationId: meUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_CustomerInfoVo'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/auth/register:
+    post:
+      tags:
+      - auth-controller
+      summary: register
+      operationId: registerUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_LoginResultVo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/auth/register-config:
+    get:
+      tags:
+      - auth-controller
+      summary: registerConfig
+      operationId: registerConfigUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_RegisterConfigVo'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/auth/reset-password:
+    post:
+      tags:
+      - auth-controller
+      summary: resetPassword
+      operationId: resetPasswordUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Void'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/auth/sms-code:
+    post:
+      tags:
+      - auth-controller
+      summary: sendCode
+      operationId: sendCodeUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendCodeAO'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Void'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/auth/verificationCode:
+    get:
+      tags:
+      - auth-controller
+      summary: verificationCode
+      operationId: verificationCodeUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_VerificationCodeVO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+    put:
+      tags:
+      - auth-controller
+      summary: verificationCode
+      operationId: verificationCodeUsingPUT
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_VerificationCodeVO'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+    post:
+      tags:
+      - auth-controller
+      summary: verificationCode
+      operationId: verificationCodeUsingPOST
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_VerificationCodeVO'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+    delete:
+      tags:
+      - auth-controller
+      summary: verificationCode
+      operationId: verificationCodeUsingDELETE
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_VerificationCodeVO'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      extensions:
+        x-order: '2147483647'
+    options:
+      tags:
+      - auth-controller
+      summary: verificationCode
+      operationId: verificationCodeUsingOPTIONS
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_VerificationCodeVO'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      extensions:
+        x-order: '2147483647'
+    head:
+      tags:
+      - auth-controller
+      summary: verificationCode
+      operationId: verificationCodeUsingHEAD
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_VerificationCodeVO'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      extensions:
+        x-order: '2147483647'
+    patch:
+      tags:
+      - auth-controller
+      summary: verificationCode
+      operationId: verificationCodeUsingPATCH
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_VerificationCodeVO'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      extensions:
+        x-order: '2147483647'
+    trace:
+      tags:
+      - auth-controller
+      summary: verificationCode
+      operationId: verificationCodeUsingTRACE
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiResponse_VerificationCodeVO'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      extensions:
+        x-order: '2147483647'
+components:
+  schemas:
+    SendCodeAO:
+      title: SendCodeAO
+      type: object
+      properties:
+        action:
+          type: string
+        code:
+          type: string
+        codeKey:
+          type: string
+        phone:
+          type: string
+    VerificationCodeVO:
+      title: VerificationCodeVO
+      type: object
+      properties:
+        codeKey:
+          type: string
+        pictureUrl:
+          type: string
+    LoginAO:
+      title: LoginAO
+      type: object
+      properties:
+        password:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+    LoginResultVo:
+      title: LoginResultVo
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/CustomerVo'
+    ApiResponse_VerificationCodeVO:
+      title: ApiResponse«VerificationCodeVO»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/VerificationCodeVO'
+        msg:
+          type: string
+    CustomerVo:
+      title: CustomerVo
+      type: object
+      properties:
+        balance_credits:
+          type: number
+          format: bigdecimal
+        balance_gift_credits:
+          type: number
+          format: bigdecimal
+        balance_member_credits:
+          type: number
+          format: bigdecimal
+        balance_purchased_credits:
+          type: number
+          format: bigdecimal
+        company:
+          type: string
+        created_at:
+          type: string
+        display_name:
+          type: string
+        enterprise_id:
+          type: integer
+          format: int64
+        enterprise_member_level:
+          type: string
+        enterprise_role:
+          type: string
+        id:
+          type: integer
+          format: int64
+        member_billing_cycle:
+          type: string
+        member_expire:
+          type: string
+        member_level:
+          type: string
+        monthly_task_count:
+          type: integer
+          format: int32
+        nickname:
+          type: string
+        phone:
+          type: string
+        role:
+          type: string
+        sales_person:
+          type: string
+        status:
+          type: string
+        trial_gift_days:
+          type: integer
+          format: int32
+        username:
+          type: string
+    ResetPasswordAO:
+      title: ResetPasswordAO
+      type: object
+      properties:
+        new_password:
+          type: string
+        phone:
+          type: string
+        sms_code:
+          type: string
+    ApiResponse_Void:
+      title: ApiResponse«Void»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        msg:
+          type: string
+    LoginSmsAO:
+      title: LoginSmsAO
+      type: object
+      properties:
+        phone:
+          type: string
+        sms_code:
+          type: string
+    CustomerInfoVo:
+      title: CustomerInfoVo
+      type: object
+      properties:
+        balance_credits:
+          type: number
+          format: bigdecimal
+        balance_gift_credits:
+          type: number
+          format: bigdecimal
+        balance_member_credits:
+          type: number
+          format: bigdecimal
+        balance_purchased_credits:
+          type: number
+          format: bigdecimal
+        balance_rmb:
+          type: number
+          format: bigdecimal
+        company:
+          type: string
+        created_at:
+          type: string
+        credit_rate:
+          type: number
+          format: float
+        display_name:
+          type: string
+        enterprise_id:
+          type: integer
+          format: int64
+        enterprise_member_level:
+          type: string
+        enterprise_role:
+          type: string
+        id:
+          type: integer
+          format: int64
+        member_billing_cycle:
+          type: string
+        member_expire:
+          type: string
+        member_level:
+          type: string
+        member_level_label:
+          type: string
+        monthly_task_count:
+          type: integer
+          format: int32
+        nickname:
+          type: string
+        phone:
+          type: string
+        role:
+          type: string
+        sales_person:
+          type: string
+        status:
+          type: string
+        trial_gift_days:
+          type: integer
+          format: int32
+        username:
+          type: string
+    ApiResponse_RegisterConfigVo:
+      title: ApiResponse«RegisterConfigVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/RegisterConfigVo'
+        msg:
+          type: string
+    ApiResponse_CustomerInfoVo:
+      title: ApiResponse«CustomerInfoVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/CustomerInfoVo'
+        msg:
+          type: string
+    RegisterConfigVo:
+      title: RegisterConfigVo
+      type: object
+      properties:
+        invite_code_required:
+          type: boolean
+    ApiResponse_HealthVo:
+      title: ApiResponse«HealthVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/HealthVo'
+        msg:
+          type: string
+    ApiResponse_LoginResultVo:
+      title: ApiResponse«LoginResultVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/LoginResultVo'
+        msg:
+          type: string
+    HealthVo:
+      title: HealthVo
+      type: object
+      properties:
+        status:
+          type: string
+        version:
+          type: string
+    RegisterAO:
+      title: RegisterAO
+      type: object
+      properties:
+        company:
+          type: string
+        invite_code:
+          type: string
+        password:
+          type: string
+        phone:
+          type: string
+        sms_code:
+          type: string

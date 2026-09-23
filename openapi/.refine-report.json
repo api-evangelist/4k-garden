@@ -1,0 +1,28 @@
+{
+  "provider": "4k-garden",
+  "sources": [
+    "_original/4k-garden-diebian-ai-openapi.json"
+  ],
+  "outputs": [
+    "4k-garden-auth-controller-api-openapi.yml",
+    "4k-garden-customer-controller-api-openapi.yml",
+    "4k-garden-enterprise-controller-api-openapi.yml",
+    "4k-garden-frontend-controller-api-openapi.yml",
+    "4k-garden-tvc-controller-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "4k-garden-diebian-ai-openapi.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0; renamed 29 component key(s) illegal in 3.x (e.g. ApiResponse\u00abCreditPackageListVo\u00bb)",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "4k-garden-auth-controller-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "4k-garden-customer-controller-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "4k-garden-enterprise-controller-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "4k-garden-frontend-controller-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "4k-garden-tvc-controller-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

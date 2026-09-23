@@ -1,0 +1,259 @@
+openapi: 3.2.0
+info:
+  title: 蝶变AI超分系统 Frontend Controller API
+  description: 蝶变AI超分系统后端API文档 - Spring Boot 2.5
+  version: 3.0.0
+servers:
+- url: http://www.fly4k.com:80
+  description: Inferred Url
+tags:
+- name: frontend-controller
+  extensions:
+    x-order: '2147483647'
+paths:
+  /api/:
+    get:
+      tags:
+      - frontend-controller
+      summary: index
+      operationId: indexUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/*.html:
+    get:
+      tags:
+      - frontend-controller
+      summary: htmlSuffix
+      operationId: htmlSuffixUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/css/**:
+    get:
+      tags:
+      - frontend-controller
+      summary: cssFiles
+      operationId: cssFilesUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/dashboard:
+    get:
+      tags:
+      - frontend-controller
+      summary: cleanUrl
+      operationId: cleanUrlUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/enterprise:
+    get:
+      tags:
+      - frontend-controller
+      summary: cleanUrl
+      operationId: cleanUrlUsingGET_1
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/images/**:
+    get:
+      tags:
+      - frontend-controller
+      summary: imageFiles
+      operationId: imageFilesUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/js/**:
+    get:
+      tags:
+      - frontend-controller
+      summary: jsFiles
+      operationId: jsFilesUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/landing:
+    get:
+      tags:
+      - frontend-controller
+      summary: cleanUrl
+      operationId: cleanUrlUsingGET_2
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/login:
+    get:
+      tags:
+      - frontend-controller
+      summary: cleanUrl
+      operationId: cleanUrlUsingGET_3
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+  /api/{filename}:
+    get:
+      tags:
+      - frontend-controller
+      summary: rootStaticFile
+      operationId: rootStaticFileUsingGET
+      parameters:
+      - name: filename
+        in: path
+        description: filename
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      extensions:
+        x-order: '2147483647'
+components:
+  schemas:
+    Resource:
+      title: Resource
+      type: object
+      properties:
+        description:
+          type: string
+        file:
+          type: string
+          format: binary
+        filename:
+          type: string
+        inputStream:
+          $ref: '#/components/schemas/InputStream'
+        open:
+          type: boolean
+        readable:
+          type: boolean
+        uri:
+          type: string
+          format: uri
+        url:
+          type: string
+          format: url
+    InputStream:
+      title: InputStream
+      type: object
