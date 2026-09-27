@@ -731,134 +731,61 @@ paths:
         x-order: '2147483647'
 components:
   schemas:
-    CreditRulesVo:
-      title: CreditRulesVo
+    FpsRatesVo:
+      title: FpsRatesVo
       type: object
       properties:
-        credit_rate:
-          type: number
-          format: float
-        fps_rates:
-          $ref: '#/components/schemas/FpsRatesVo'
-    PagedTaskVo:
-      title: PagedTaskVo
+        high:
+          $ref: '#/components/schemas/FpsRateTierHighVo'
+        low:
+          $ref: '#/components/schemas/FpsRateTierVo'
+        medium:
+          $ref: '#/components/schemas/FpsRateTierVo'
+    ApiResponse_List_ProductVO:
+      title: ApiResponse«List«ProductVO»»
       type: object
       properties:
-        credit_rate:
-          type: number
-          format: float
-        page:
+        code:
           type: integer
           format: int32
-        page_size:
-          type: integer
-          format: int32
-        tasks:
+        data:
           type: array
           items:
-            $ref: '#/components/schemas/Task'
-        total:
-          type: integer
-          format: int64
-    CustomerStatsVo:
-      title: CustomerStatsVo
-      type: object
-      properties:
-        completed_tasks:
-          type: integer
-          format: int64
-        failed_tasks:
-          type: integer
-          format: int64
-        processing_tasks:
-          type: integer
-          format: int64
-        total_credits_used:
-          type: integer
-          format: int32
-        total_credits_used_rmb:
-          type: integer
-          format: int32
-        total_tasks:
-          type: integer
-          format: int64
-    ApiResponse_JSONObject:
-      title: ApiResponse«JSONObject»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          type: object
-          additionalProperties:
-            type: object
+            $ref: '#/components/schemas/ProductVO'
         msg:
           type: string
-    UpdateProfileAO:
-      title: UpdateProfileAO
+    CreateTaskAO:
+      title: CreateTaskAO
       type: object
       properties:
-        nickname:
-          type: string
-    ApiResponse_CreditRulesVo:
-      title: ApiResponse«CreditRulesVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/CreditRulesVo'
-        msg:
-          type: string
-    ProductVO:
-      title: ProductVO
-      type: object
-      properties:
-        creditDescription:
-          type: string
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        price:
+        original_duration:
           type: number
           format: bigdecimal
-        tips1:
+        original_fps:
+          type: number
+          format: bigdecimal
+        original_resolution:
           type: string
-        tips2:
+        output_resolution:
           type: string
-        tips3:
+        remark:
           type: string
-        tips4:
+        use_enterprise_credits:
+          type: boolean
+        video_name:
           type: string
-        tips5:
-          type: string
-        type:
-          type: integer
-          format: int32
-    ApiResponse_TaskDetailVo:
-      title: ApiResponse«TaskDetailVo»
+        video_size:
+          type: number
+          format: bigdecimal
+    ApiResponse_PagedConsumptionVo:
+      title: ApiResponse«PagedConsumptionVo»
       type: object
       properties:
         code:
           type: integer
           format: int32
         data:
-          $ref: '#/components/schemas/TaskDetailVo'
-        msg:
-          type: string
-    ApiResponse_MemberPlanListVo:
-      title: ApiResponse«MemberPlanListVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/MemberPlanListVo'
+          $ref: '#/components/schemas/PagedConsumptionVo'
         msg:
           type: string
     MemberPlan:
@@ -899,6 +826,26 @@ components:
         sortOrder:
           type: integer
           format: int32
+    PagedTaskVo:
+      title: PagedTaskVo
+      type: object
+      properties:
+        credit_rate:
+          type: number
+          format: float
+        page:
+          type: integer
+          format: int32
+        page_size:
+          type: integer
+          format: int32
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        total:
+          type: integer
+          format: int64
     ApiResponse_CreditPackageListVo:
       title: ApiResponse«CreditPackageListVo»
       type: object
@@ -908,180 +855,6 @@ components:
           format: int32
         data:
           $ref: '#/components/schemas/CreditPackageListVo'
-        msg:
-          type: string
-    ApiResponse:
-      title: ApiResponse
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          type: object
-        msg:
-          type: string
-    ChangePasswordAO:
-      title: ChangePasswordAO
-      type: object
-      properties:
-        new_password:
-          type: string
-        old_password:
-          type: string
-    ApiResponse_TaskCreateResultVo:
-      title: ApiResponse«TaskCreateResultVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/TaskCreateResultVo'
-        msg:
-          type: string
-    ApiResponse_List_ProductVO:
-      title: ApiResponse«List«ProductVO»»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductVO'
-        msg:
-          type: string
-    ChangePhoneAO:
-      title: ChangePhoneAO
-      type: object
-      properties:
-        new_phone:
-          type: string
-        phone:
-          type: string
-        sms_code:
-          type: string
-    MemberPlanListVo:
-      title: MemberPlanListVo
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/MemberPlan'
-    ApiResponse_CustomerStatsVo:
-      title: ApiResponse«CustomerStatsVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/CustomerStatsVo'
-        msg:
-          type: string
-    FpsRateTierVo:
-      title: FpsRateTierVo
-      type: object
-      properties:
-        max_fps:
-          type: integer
-          format: int32
-        rate:
-          type: number
-          format: bigdecimal
-    ApiResponse_CustomerBalanceVo:
-      title: ApiResponse«CustomerBalanceVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/CustomerBalanceVo'
-        msg:
-          type: string
-    EnterpriseBriefVo:
-      title: EnterpriseBriefVo
-      type: object
-      properties:
-        annual_credits_remaining:
-          type: number
-          format: bigdecimal
-        id:
-          type: integer
-          format: int64
-        member_level:
-          type: string
-        name:
-          type: string
-        plan:
-          type: string
-        purchased_credits:
-          type: number
-          format: bigdecimal
-        role:
-          type: string
-    ApiResponse_PagedTaskVo:
-      title: ApiResponse«PagedTaskVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/PagedTaskVo'
-        msg:
-          type: string
-    FpsRatesVo:
-      title: FpsRatesVo
-      type: object
-      properties:
-        high:
-          $ref: '#/components/schemas/FpsRateTierHighVo'
-        low:
-          $ref: '#/components/schemas/FpsRateTierVo'
-        medium:
-          $ref: '#/components/schemas/FpsRateTierVo'
-    OrderListVO:
-      title: OrderListVO
-      type: object
-      properties:
-        amount:
-          type: number
-          format: bigdecimal
-        crystals:
-          type: integer
-          format: int32
-        packageName:
-          type: string
-        paymentMethod:
-          type: string
-        time:
-          type: string
-          format: date-time
-    CreditPackageListVo:
-      title: CreditPackageListVo
-      type: object
-      properties:
-        credit_rate:
-          type: number
-          format: float
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreditPackage'
-    ApiResponse_CustomerVo:
-      title: ApiResponse«CustomerVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/CustomerVo'
         msg:
           type: string
     EnterprisePlan:
@@ -1126,78 +899,193 @@ components:
         sortOrder:
           type: integer
           format: int32
-    CreateTaskAO:
-      title: CreateTaskAO
+    Task:
+      title: Task
       type: object
       properties:
-        original_duration:
-          type: number
-          format: bigdecimal
-        original_fps:
-          type: number
-          format: bigdecimal
-        original_resolution:
+        auditDesc:
           type: string
-        output_resolution:
+        auditOperator:
           type: string
-        remark:
+        auditState:
+          type: integer
+          format: int32
+        auditTime:
           type: string
-        use_enterprise_credits:
-          type: boolean
-        video_name:
+          format: date-time
+        completedAt:
           type: string
-        video_size:
+          format: date-time
+        costCredits:
           type: number
           format: bigdecimal
-    TaskCreateResultVo:
-      title: TaskCreateResultVo
-      type: object
-      properties:
-        base_credits:
+        costGiftCredits:
           type: number
           format: bigdecimal
-        cost_credits:
+        costMemberCredits:
           type: number
           format: bigdecimal
-        discount_rate:
+        costPurchasedCredits:
           type: number
           format: bigdecimal
+        createdAt:
+          type: string
+          format: date-time
+        discountRate:
+          type: number
+          format: bigdecimal
+        downloadCount:
+          type: integer
+          format: int32
+        downloadRemaining:
+          type: integer
+          format: int32
+        enterpriseId:
+          type: integer
+          format: int64
+        errorMessage:
+          type: string
+        estimatedCompletionTime:
+          type: string
+        hevc:
+          type: integer
+          format: int32
         id:
           type: integer
           format: int64
+        model:
+          type: integer
+          format: int32
+        originalDuration:
+          type: number
+          format: bigdecimal
+        originalFps:
+          type: number
+          format: bigdecimal
+        originalHeight:
+          type: integer
+          format: int32
+        originalResolution:
+          type: string
+        originalWidth:
+          type: integer
+          format: int32
+        outputResolution:
+          type: string
+        outputUrl:
+          type: string
         priority:
           type: integer
           format: int32
+        prioritySeq:
+          type: integer
+          format: int32
+        progress:
+          type: integer
+          format: int32
+        remark:
+          type: string
+        scheme:
+          type: integer
+          format: int32
+        sourceUrl:
+          type: string
         status:
           type: string
-        user_id:
+        updatedAt:
+          type: string
+          format: date-time
+        useEnterpriseCredits:
+          type: boolean
+        userId:
           type: integer
           format: int64
-        video_name:
+        videoName:
           type: string
-        work_duration:
+        videoSize:
           type: number
           format: bigdecimal
-    PagedConsumptionVo:
-      title: PagedConsumptionVo
+        workDuration:
+          type: number
+          format: bigdecimal
+    UpdateProfileAO:
+      title: UpdateProfileAO
       type: object
       properties:
-        credit_rate:
-          type: number
-          format: float
+        nickname:
+          type: string
+    MemberPlanListVo:
+      title: MemberPlanListVo
+      type: object
+      properties:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Consumption'
-        page:
+            $ref: '#/components/schemas/MemberPlan'
+    ApiResponse_MemberPlanListVo:
+      title: ApiResponse«MemberPlanListVo»
+      type: object
+      properties:
+        code:
           type: integer
           format: int32
-        page_size:
+        data:
+          $ref: '#/components/schemas/MemberPlanListVo'
+        msg:
+          type: string
+    ApiResponse_TaskCreateResultVo:
+      title: ApiResponse«TaskCreateResultVo»
+      type: object
+      properties:
+        code:
           type: integer
           format: int32
-        total:
+        data:
+          $ref: '#/components/schemas/TaskCreateResultVo'
+        msg:
+          type: string
+    EnterprisePlanListVo:
+      title: EnterprisePlanListVo
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnterprisePlan'
+    ChangePhoneAO:
+      title: ChangePhoneAO
+      type: object
+      properties:
+        new_phone:
+          type: string
+        phone:
+          type: string
+        sms_code:
+          type: string
+    ApiResponse_JSONObject:
+      title: ApiResponse«JSONObject»
+      type: object
+      properties:
+        code:
           type: integer
-          format: int64
+          format: int32
+        data:
+          type: object
+          additionalProperties:
+            type: object
+        msg:
+          type: string
+    ApiResponse:
+      title: ApiResponse
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          type: object
+        msg:
+          type: string
     CreditPackage:
       title: CreditPackage
       type: object
@@ -1235,35 +1123,118 @@ components:
         totalCredits:
           type: integer
           format: int32
-    ApiResponse_TaskUploadResultVo:
-      title: ApiResponse«TaskUploadResultVo»
+    ApiResponse_PagedTaskVo:
+      title: ApiResponse«PagedTaskVo»
       type: object
       properties:
         code:
           type: integer
           format: int32
         data:
-          $ref: '#/components/schemas/TaskUploadResultVo'
+          $ref: '#/components/schemas/PagedTaskVo'
         msg:
           type: string
-    FpsRateTierHighVo:
-      title: FpsRateTierHighVo
+    ApiResponse_CreditRulesVo:
+      title: ApiResponse«CreditRulesVo»
       type: object
       properties:
-        min_fps:
+        code:
           type: integer
           format: int32
-        rate:
-          type: number
-          format: bigdecimal
-    EnterprisePlanListVo:
-      title: EnterprisePlanListVo
+        data:
+          $ref: '#/components/schemas/CreditRulesVo'
+        msg:
+          type: string
+    PagedConsumptionVo:
+      title: PagedConsumptionVo
       type: object
       properties:
+        credit_rate:
+          type: number
+          format: float
         data:
           type: array
           items:
-            $ref: '#/components/schemas/EnterprisePlan'
+            $ref: '#/components/schemas/Consumption'
+        page:
+          type: integer
+          format: int32
+        page_size:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int64
+    ApiResponse_CustomerStatsVo:
+      title: ApiResponse«CustomerStatsVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/CustomerStatsVo'
+        msg:
+          type: string
+    ProductVO:
+      title: ProductVO
+      type: object
+      properties:
+        creditDescription:
+          type: string
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        price:
+          type: number
+          format: bigdecimal
+        tips1:
+          type: string
+        tips2:
+          type: string
+        tips3:
+          type: string
+        tips4:
+          type: string
+        tips5:
+          type: string
+        type:
+          type: integer
+          format: int32
+    ApiResponse_TaskDetailVo:
+      title: ApiResponse«TaskDetailVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/TaskDetailVo'
+        msg:
+          type: string
+    EnterpriseBriefVo:
+      title: EnterpriseBriefVo
+      type: object
+      properties:
+        annual_credits_remaining:
+          type: number
+          format: bigdecimal
+        id:
+          type: integer
+          format: int64
+        member_level:
+          type: string
+        name:
+          type: string
+        plan:
+          type: string
+        purchased_credits:
+          type: number
+          format: bigdecimal
+        role:
+          type: string
     ApiResponse_EnterprisePlanListVo:
       title: ApiResponse«EnterprisePlanListVo»
       type: object
@@ -1383,154 +1354,87 @@ components:
         work_duration:
           type: number
           format: bigdecimal
-    TaskDetailVo:
-      title: TaskDetailVo
+    CreditPackageListVo:
+      title: CreditPackageListVo
       type: object
       properties:
-        cost_credits:
-          type: number
-          format: bigdecimal
-        cost_rmb:
-          type: number
-          format: bigdecimal
-        created_at:
-          type: string
         credit_rate:
           type: number
           format: float
-        id:
-          type: integer
-          format: int64
-        progress:
-          type: integer
-          format: int32
-        status:
-          type: string
-        video_name:
-          type: string
-        work_duration:
-          type: number
-          format: bigdecimal
-    ApiResponse_PagedConsumptionVo:
-      title: ApiResponse«PagedConsumptionVo»
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditPackage'
+    ApiResponse_TaskUploadResultVo:
+      title: ApiResponse«TaskUploadResultVo»
       type: object
       properties:
         code:
           type: integer
           format: int32
         data:
-          $ref: '#/components/schemas/PagedConsumptionVo'
+          $ref: '#/components/schemas/TaskUploadResultVo'
         msg:
           type: string
-    Task:
-      title: Task
+    TaskCreateResultVo:
+      title: TaskCreateResultVo
       type: object
       properties:
-        auditDesc:
-          type: string
-        auditOperator:
-          type: string
-        auditState:
-          type: integer
-          format: int32
-        auditTime:
-          type: string
-          format: date-time
-        completedAt:
-          type: string
-          format: date-time
-        costCredits:
+        base_credits:
           type: number
           format: bigdecimal
-        costGiftCredits:
+        cost_credits:
           type: number
           format: bigdecimal
-        costMemberCredits:
+        discount_rate:
           type: number
           format: bigdecimal
-        costPurchasedCredits:
-          type: number
-          format: bigdecimal
-        createdAt:
-          type: string
-          format: date-time
-        discountRate:
-          type: number
-          format: bigdecimal
-        downloadCount:
-          type: integer
-          format: int32
-        downloadRemaining:
-          type: integer
-          format: int32
-        enterpriseId:
-          type: integer
-          format: int64
-        errorMessage:
-          type: string
-        estimatedCompletionTime:
-          type: string
-        hevc:
-          type: integer
-          format: int32
         id:
           type: integer
           format: int64
-        model:
-          type: integer
-          format: int32
-        originalDuration:
-          type: number
-          format: bigdecimal
-        originalFps:
-          type: number
-          format: bigdecimal
-        originalHeight:
-          type: integer
-          format: int32
-        originalResolution:
-          type: string
-        originalWidth:
-          type: integer
-          format: int32
-        outputResolution:
-          type: string
-        outputUrl:
-          type: string
         priority:
           type: integer
           format: int32
-        prioritySeq:
-          type: integer
-          format: int32
-        progress:
-          type: integer
-          format: int32
-        remark:
-          type: string
-        scheme:
-          type: integer
-          format: int32
-        sourceUrl:
-          type: string
         status:
           type: string
-        updatedAt:
-          type: string
-          format: date-time
-        useEnterpriseCredits:
-          type: boolean
-        userId:
+        user_id:
           type: integer
           format: int64
-        videoName:
+        video_name:
           type: string
-        videoSize:
+        work_duration:
           type: number
           format: bigdecimal
-        workDuration:
+    ApiResponse_List_OrderListVO:
+      title: ApiResponse«List«OrderListVO»»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderListVO'
+        msg:
+          type: string
+    OrderListVO:
+      title: OrderListVO
+      type: object
+      properties:
+        amount:
           type: number
           format: bigdecimal
+        crystals:
+          type: integer
+          format: int32
+        packageName:
+          type: string
+        paymentMethod:
+          type: string
+        time:
+          type: string
+          format: date-time
     Consumption:
       title: Consumption
       type: object
@@ -1558,6 +1462,44 @@ components:
         userId:
           type: integer
           format: int64
+    FpsRateTierHighVo:
+      title: FpsRateTierHighVo
+      type: object
+      properties:
+        min_fps:
+          type: integer
+          format: int32
+        rate:
+          type: number
+          format: bigdecimal
+    ChangePasswordAO:
+      title: ChangePasswordAO
+      type: object
+      properties:
+        new_password:
+          type: string
+        old_password:
+          type: string
+    CreditRulesVo:
+      title: CreditRulesVo
+      type: object
+      properties:
+        credit_rate:
+          type: number
+          format: float
+        fps_rates:
+          $ref: '#/components/schemas/FpsRatesVo'
+    ApiResponse_CustomerVo:
+      title: ApiResponse«CustomerVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/CustomerVo'
+        msg:
+          type: string
     CustomerBalanceVo:
       title: CustomerBalanceVo
       type: object
@@ -1599,16 +1541,74 @@ components:
         trial_gift_days:
           type: integer
           format: int32
-    ApiResponse_List_OrderListVO:
-      title: ApiResponse«List«OrderListVO»»
+    ApiResponse_CustomerBalanceVo:
+      title: ApiResponse«CustomerBalanceVo»
       type: object
       properties:
         code:
           type: integer
           format: int32
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderListVO'
+          $ref: '#/components/schemas/CustomerBalanceVo'
         msg:
           type: string
+    FpsRateTierVo:
+      title: FpsRateTierVo
+      type: object
+      properties:
+        max_fps:
+          type: integer
+          format: int32
+        rate:
+          type: number
+          format: bigdecimal
+    TaskDetailVo:
+      title: TaskDetailVo
+      type: object
+      properties:
+        cost_credits:
+          type: number
+          format: bigdecimal
+        cost_rmb:
+          type: number
+          format: bigdecimal
+        created_at:
+          type: string
+        credit_rate:
+          type: number
+          format: float
+        id:
+          type: integer
+          format: int64
+        progress:
+          type: integer
+          format: int32
+        status:
+          type: string
+        video_name:
+          type: string
+        work_duration:
+          type: number
+          format: bigdecimal
+    CustomerStatsVo:
+      title: CustomerStatsVo
+      type: object
+      properties:
+        completed_tasks:
+          type: integer
+          format: int64
+        failed_tasks:
+          type: integer
+          format: int64
+        processing_tasks:
+          type: integer
+          format: int64
+        total_credits_used:
+          type: integer
+          format: int32
+        total_credits_used_rmb:
+          type: integer
+          format: int32
+        total_tasks:
+          type: integer
+          format: int64

@@ -381,134 +381,16 @@ paths:
         x-order: '2147483647'
 components:
   schemas:
-    SendCodeAO:
-      title: SendCodeAO
+    RegisterAO:
+      title: RegisterAO
       type: object
       properties:
-        action:
-          type: string
-        code:
-          type: string
-        codeKey:
-          type: string
-        phone:
-          type: string
-    VerificationCodeVO:
-      title: VerificationCodeVO
-      type: object
-      properties:
-        codeKey:
-          type: string
-        pictureUrl:
-          type: string
-    LoginAO:
-      title: LoginAO
-      type: object
-      properties:
-        password:
-          type: string
-        phone:
-          type: string
-        username:
-          type: string
-    LoginResultVo:
-      title: LoginResultVo
-      type: object
-      properties:
-        token:
-          type: string
-        user:
-          $ref: '#/components/schemas/CustomerVo'
-    ApiResponse_VerificationCodeVO:
-      title: ApiResponse«VerificationCodeVO»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/VerificationCodeVO'
-        msg:
-          type: string
-    CustomerVo:
-      title: CustomerVo
-      type: object
-      properties:
-        balance_credits:
-          type: number
-          format: bigdecimal
-        balance_gift_credits:
-          type: number
-          format: bigdecimal
-        balance_member_credits:
-          type: number
-          format: bigdecimal
-        balance_purchased_credits:
-          type: number
-          format: bigdecimal
         company:
           type: string
-        created_at:
+        invite_code:
           type: string
-        display_name:
+        password:
           type: string
-        enterprise_id:
-          type: integer
-          format: int64
-        enterprise_member_level:
-          type: string
-        enterprise_role:
-          type: string
-        id:
-          type: integer
-          format: int64
-        member_billing_cycle:
-          type: string
-        member_expire:
-          type: string
-        member_level:
-          type: string
-        monthly_task_count:
-          type: integer
-          format: int32
-        nickname:
-          type: string
-        phone:
-          type: string
-        role:
-          type: string
-        sales_person:
-          type: string
-        status:
-          type: string
-        trial_gift_days:
-          type: integer
-          format: int32
-        username:
-          type: string
-    ResetPasswordAO:
-      title: ResetPasswordAO
-      type: object
-      properties:
-        new_password:
-          type: string
-        phone:
-          type: string
-        sms_code:
-          type: string
-    ApiResponse_Void:
-      title: ApiResponse«Void»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        msg:
-          type: string
-    LoginSmsAO:
-      title: LoginSmsAO
-      type: object
-      properties:
         phone:
           type: string
         sms_code:
@@ -577,6 +459,41 @@ components:
           format: int32
         username:
           type: string
+    RegisterConfigVo:
+      title: RegisterConfigVo
+      type: object
+      properties:
+        invite_code_required:
+          type: boolean
+    ResetPasswordAO:
+      title: ResetPasswordAO
+      type: object
+      properties:
+        new_password:
+          type: string
+        phone:
+          type: string
+        sms_code:
+          type: string
+    ApiResponse_HealthVo:
+      title: ApiResponse«HealthVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/HealthVo'
+        msg:
+          type: string
+    HealthVo:
+      title: HealthVo
+      type: object
+      properties:
+        status:
+          type: string
+        version:
+          type: string
     ApiResponse_RegisterConfigVo:
       title: ApiResponse«RegisterConfigVo»
       type: object
@@ -588,33 +505,55 @@ components:
           $ref: '#/components/schemas/RegisterConfigVo'
         msg:
           type: string
-    ApiResponse_CustomerInfoVo:
-      title: ApiResponse«CustomerInfoVo»
+    ApiResponse_VerificationCodeVO:
+      title: ApiResponse«VerificationCodeVO»
       type: object
       properties:
         code:
           type: integer
           format: int32
         data:
-          $ref: '#/components/schemas/CustomerInfoVo'
+          $ref: '#/components/schemas/VerificationCodeVO'
         msg:
           type: string
-    RegisterConfigVo:
-      title: RegisterConfigVo
+    SendCodeAO:
+      title: SendCodeAO
       type: object
       properties:
-        invite_code_required:
-          type: boolean
-    ApiResponse_HealthVo:
-      title: ApiResponse«HealthVo»
+        action:
+          type: string
+        code:
+          type: string
+        codeKey:
+          type: string
+        phone:
+          type: string
+    LoginSmsAO:
+      title: LoginSmsAO
+      type: object
+      properties:
+        phone:
+          type: string
+        sms_code:
+          type: string
+    ApiResponse_Void:
+      title: ApiResponse«Void»
       type: object
       properties:
         code:
           type: integer
           format: int32
-        data:
-          $ref: '#/components/schemas/HealthVo'
         msg:
+          type: string
+    LoginAO:
+      title: LoginAO
+      type: object
+      properties:
+        password:
+          type: string
+        phone:
+          type: string
+        username:
           type: string
     ApiResponse_LoginResultVo:
       title: ApiResponse«LoginResultVo»
@@ -627,25 +566,86 @@ components:
           $ref: '#/components/schemas/LoginResultVo'
         msg:
           type: string
-    HealthVo:
-      title: HealthVo
+    LoginResultVo:
+      title: LoginResultVo
       type: object
       properties:
-        status:
+        token:
           type: string
-        version:
-          type: string
-    RegisterAO:
-      title: RegisterAO
+        user:
+          $ref: '#/components/schemas/CustomerVo'
+    ApiResponse_CustomerInfoVo:
+      title: ApiResponse«CustomerInfoVo»
       type: object
       properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/CustomerInfoVo'
+        msg:
+          type: string
+    CustomerVo:
+      title: CustomerVo
+      type: object
+      properties:
+        balance_credits:
+          type: number
+          format: bigdecimal
+        balance_gift_credits:
+          type: number
+          format: bigdecimal
+        balance_member_credits:
+          type: number
+          format: bigdecimal
+        balance_purchased_credits:
+          type: number
+          format: bigdecimal
         company:
           type: string
-        invite_code:
+        created_at:
           type: string
-        password:
+        display_name:
+          type: string
+        enterprise_id:
+          type: integer
+          format: int64
+        enterprise_member_level:
+          type: string
+        enterprise_role:
+          type: string
+        id:
+          type: integer
+          format: int64
+        member_billing_cycle:
+          type: string
+        member_expire:
+          type: string
+        member_level:
+          type: string
+        monthly_task_count:
+          type: integer
+          format: int32
+        nickname:
           type: string
         phone:
           type: string
-        sms_code:
+        role:
+          type: string
+        sales_person:
+          type: string
+        status:
+          type: string
+        trial_gift_days:
+          type: integer
+          format: int32
+        username:
+          type: string
+    VerificationCodeVO:
+      title: VerificationCodeVO
+      type: object
+      properties:
+        codeKey:
+          type: string
+        pictureUrl:
           type: string
