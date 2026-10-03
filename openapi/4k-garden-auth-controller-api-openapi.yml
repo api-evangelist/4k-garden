@@ -395,6 +395,110 @@ components:
           type: string
         sms_code:
           type: string
+    ApiResponse_Void:
+      title: ApiResponse«Void»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        msg:
+          type: string
+    HealthVo:
+      title: HealthVo
+      type: object
+      properties:
+        status:
+          type: string
+        version:
+          type: string
+    ResetPasswordAO:
+      title: ResetPasswordAO
+      type: object
+      properties:
+        new_password:
+          type: string
+        phone:
+          type: string
+        sms_code:
+          type: string
+    ApiResponse_RegisterConfigVo:
+      title: ApiResponse«RegisterConfigVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/RegisterConfigVo'
+        msg:
+          type: string
+    ApiResponse_CustomerInfoVo:
+      title: ApiResponse«CustomerInfoVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/CustomerInfoVo'
+        msg:
+          type: string
+    RegisterConfigVo:
+      title: RegisterConfigVo
+      type: object
+      properties:
+        invite_code_required:
+          type: boolean
+    SendCodeAO:
+      title: SendCodeAO
+      type: object
+      properties:
+        action:
+          type: string
+        code:
+          type: string
+        codeKey:
+          type: string
+        phone:
+          type: string
+    LoginAO:
+      title: LoginAO
+      type: object
+      properties:
+        password:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+    LoginSmsAO:
+      title: LoginSmsAO
+      type: object
+      properties:
+        phone:
+          type: string
+        sms_code:
+          type: string
+    VerificationCodeVO:
+      title: VerificationCodeVO
+      type: object
+      properties:
+        codeKey:
+          type: string
+        pictureUrl:
+          type: string
+    ApiResponse_VerificationCodeVO:
+      title: ApiResponse«VerificationCodeVO»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/VerificationCodeVO'
+        msg:
+          type: string
     CustomerInfoVo:
       title: CustomerInfoVo
       type: object
@@ -459,22 +563,6 @@ components:
           format: int32
         username:
           type: string
-    RegisterConfigVo:
-      title: RegisterConfigVo
-      type: object
-      properties:
-        invite_code_required:
-          type: boolean
-    ResetPasswordAO:
-      title: ResetPasswordAO
-      type: object
-      properties:
-        new_password:
-          type: string
-        phone:
-          type: string
-        sms_code:
-          type: string
     ApiResponse_HealthVo:
       title: ApiResponse«HealthVo»
       type: object
@@ -484,105 +572,6 @@ components:
           format: int32
         data:
           $ref: '#/components/schemas/HealthVo'
-        msg:
-          type: string
-    HealthVo:
-      title: HealthVo
-      type: object
-      properties:
-        status:
-          type: string
-        version:
-          type: string
-    ApiResponse_RegisterConfigVo:
-      title: ApiResponse«RegisterConfigVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/RegisterConfigVo'
-        msg:
-          type: string
-    ApiResponse_VerificationCodeVO:
-      title: ApiResponse«VerificationCodeVO»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/VerificationCodeVO'
-        msg:
-          type: string
-    SendCodeAO:
-      title: SendCodeAO
-      type: object
-      properties:
-        action:
-          type: string
-        code:
-          type: string
-        codeKey:
-          type: string
-        phone:
-          type: string
-    LoginSmsAO:
-      title: LoginSmsAO
-      type: object
-      properties:
-        phone:
-          type: string
-        sms_code:
-          type: string
-    ApiResponse_Void:
-      title: ApiResponse«Void»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        msg:
-          type: string
-    LoginAO:
-      title: LoginAO
-      type: object
-      properties:
-        password:
-          type: string
-        phone:
-          type: string
-        username:
-          type: string
-    ApiResponse_LoginResultVo:
-      title: ApiResponse«LoginResultVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/LoginResultVo'
-        msg:
-          type: string
-    LoginResultVo:
-      title: LoginResultVo
-      type: object
-      properties:
-        token:
-          type: string
-        user:
-          $ref: '#/components/schemas/CustomerVo'
-    ApiResponse_CustomerInfoVo:
-      title: ApiResponse«CustomerInfoVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/CustomerInfoVo'
         msg:
           type: string
     CustomerVo:
@@ -641,11 +630,22 @@ components:
           format: int32
         username:
           type: string
-    VerificationCodeVO:
-      title: VerificationCodeVO
+    ApiResponse_LoginResultVo:
+      title: ApiResponse«LoginResultVo»
       type: object
       properties:
-        codeKey:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/LoginResultVo'
+        msg:
           type: string
-        pictureUrl:
+    LoginResultVo:
+      title: LoginResultVo
+      type: object
+      properties:
+        token:
           type: string
+        user:
+          $ref: '#/components/schemas/CustomerVo'

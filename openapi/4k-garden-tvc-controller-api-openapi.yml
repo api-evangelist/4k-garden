@@ -280,38 +280,17 @@ paths:
         x-order: '2147483647'
 components:
   schemas:
-    LinkmanInfo:
-      title: LinkmanInfo
-      type: object
-      properties:
-        company:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        wechat:
-          type: string
-    ApiResponse_TvcWorkspaceVo:
-      title: ApiResponse«TvcWorkspaceVo»
+    ApiResponse_Map_string_object:
+      title: ApiResponse«Map«string,object»»
       type: object
       properties:
         code:
           type: integer
           format: int32
         data:
-          $ref: '#/components/schemas/TvcWorkspaceVo'
+          type: object
         msg:
           type: string
-    TvcTaskReviseAO:
-      title: TvcTaskReviseAO
-      type: object
-      properties:
-        feedback:
-          type: string
-        task_id:
-          type: integer
-          format: int64
     ListTvcTasksAO:
       title: ListTvcTasksAO
       type: object
@@ -324,16 +303,26 @@ components:
           format: int32
         status:
           type: string
-    ApiResponse_Map_string_object:
-      title: ApiResponse«Map«string,object»»
+    TvcTaskReviseAO:
+      title: TvcTaskReviseAO
       type: object
       properties:
-        code:
+        feedback:
+          type: string
+        task_id:
           type: integer
-          format: int32
-        data:
-          type: object
-        msg:
+          format: int64
+    LinkmanInfo:
+      title: LinkmanInfo
+      type: object
+      properties:
+        company:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        wechat:
           type: string
     CreateCinemaTaskAO:
       title: CreateCinemaTaskAO
@@ -346,57 +335,31 @@ components:
           $ref: '#/components/schemas/LinkmanInfo'
         title:
           type: string
-    TvcTaskListVo:
-      title: TvcTaskListVo
+    TvcTaskCancelAO:
+      title: TvcTaskCancelAO
       type: object
       properties:
-        category:
+        cancel_reason:
           type: string
-        cost_credits:
-          type: number
-          format: bigdecimal
-        created_at:
-          type: string
-        id:
-          type: integer
-          format: int64
-        is_urgent:
-          type: boolean
-        review_deadline:
-          type: string
-        status:
-          type: string
-        task_no:
-          type: string
-        title:
-          type: string
-        video_duration:
-          type: number
-          format: bigdecimal
-    TvcTaskIdAO:
-      title: TvcTaskIdAO
-      type: object
-      properties:
         task_id:
           type: integer
           format: int64
-    TvcTaskCreateResultVo:
-      title: TvcTaskCreateResultVo
+    TvcStatsVo:
+      title: TvcStatsVo
       type: object
       properties:
-        cost_credits:
-          type: number
-          format: bigdecimal
-        task_no:
-          type: string
-        video_duration:
-          type: number
-          format: bigdecimal
-        video_fps:
-          type: number
-          format: bigdecimal
-        video_resolution:
-          type: string
+        completed_count:
+          type: integer
+          format: int64
+        pending_count:
+          type: integer
+          format: int64
+        producing_count:
+          type: integer
+          format: int64
+        reviewing_count:
+          type: integer
+          format: int64
     TvcTaskDetailVo:
       title: TvcTaskDetailVo
       type: object
@@ -461,6 +424,17 @@ components:
         video_size:
           type: number
           format: bigdecimal
+    ApiResponse_TvcTaskDetailVo:
+      title: ApiResponse«TvcTaskDetailVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/TvcTaskDetailVo'
+        msg:
+          type: string
     ApiResponse_TvcTaskCreateResultVo:
       title: ApiResponse«TvcTaskCreateResultVo»
       type: object
@@ -472,15 +446,6 @@ components:
           $ref: '#/components/schemas/TvcTaskCreateResultVo'
         msg:
           type: string
-    TvcTaskCancelAO:
-      title: TvcTaskCancelAO
-      type: object
-      properties:
-        cancel_reason:
-          type: string
-        task_id:
-          type: integer
-          format: int64
     TvcWorkspaceVo:
       title: TvcWorkspaceVo
       type: object
@@ -498,17 +463,24 @@ components:
             $ref: '#/components/schemas/TvcTaskListVo'
         stats:
           $ref: '#/components/schemas/TvcStatsVo'
-    ApiResponse_TvcTaskDetailVo:
-      title: ApiResponse«TvcTaskDetailVo»
+    ApiResponse_TvcWorkspaceVo:
+      title: ApiResponse«TvcWorkspaceVo»
       type: object
       properties:
         code:
           type: integer
           format: int32
         data:
-          $ref: '#/components/schemas/TvcTaskDetailVo'
+          $ref: '#/components/schemas/TvcWorkspaceVo'
         msg:
           type: string
+    TvcTaskIdAO:
+      title: TvcTaskIdAO
+      type: object
+      properties:
+        task_id:
+          type: integer
+          format: int64
     TvcRevisionVo:
       title: TvcRevisionVo
       type: object
@@ -522,19 +494,47 @@ components:
         revision_no:
           type: integer
           format: int32
-    TvcStatsVo:
-      title: TvcStatsVo
+    TvcTaskCreateResultVo:
+      title: TvcTaskCreateResultVo
       type: object
       properties:
-        completed_count:
+        cost_credits:
+          type: number
+          format: bigdecimal
+        task_no:
+          type: string
+        video_duration:
+          type: number
+          format: bigdecimal
+        video_fps:
+          type: number
+          format: bigdecimal
+        video_resolution:
+          type: string
+    TvcTaskListVo:
+      title: TvcTaskListVo
+      type: object
+      properties:
+        category:
+          type: string
+        cost_credits:
+          type: number
+          format: bigdecimal
+        created_at:
+          type: string
+        id:
           type: integer
           format: int64
-        pending_count:
-          type: integer
-          format: int64
-        producing_count:
-          type: integer
-          format: int64
-        reviewing_count:
-          type: integer
-          format: int64
+        is_urgent:
+          type: boolean
+        review_deadline:
+          type: string
+        status:
+          type: string
+        task_no:
+          type: string
+        title:
+          type: string
+        video_duration:
+          type: number
+          format: bigdecimal
