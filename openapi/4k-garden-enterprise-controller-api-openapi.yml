@@ -306,43 +306,37 @@ paths:
         x-order: '2147483647'
 components:
   schemas:
-    EnterpriseInvitationVo:
-      title: EnterpriseInvitationVo
-      type: object
-      properties:
-        created_at:
-          type: string
-        enterprise_id:
-          type: integer
-          format: int64
-        id:
-          type: integer
-          format: int64
-        invitee_id:
-          type: integer
-          format: int64
-        invitee_phone:
-          type: string
-        inviter_id:
-          type: integer
-          format: int64
-        member_level:
-          type: string
-        responded_at:
-          type: string
-        status:
-          type: string
-    ApiResponse_Void:
-      title: ApiResponse«Void»
+    ApiResponse_List_CustomerVo:
+      title: ApiResponse«List«CustomerVo»»
       type: object
       properties:
         code:
           type: integer
           format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomerVo'
         msg:
           type: string
-    EnterpriseVo:
-      title: EnterpriseVo
+    InviteMemberAO:
+      title: InviteMemberAO
+      type: object
+      properties:
+        member_level:
+          type: string
+        phone:
+          type: string
+    EnterpriseStatsVo:
+      title: EnterpriseStatsVo
+      type: object
+      properties:
+        enterprise:
+          $ref: '#/components/schemas/EnterpriseVo'
+        task_stats:
+          $ref: '#/components/schemas/TaskStatsVo'
+    EnterpriseDetailVo:
+      title: EnterpriseDetailVo
       type: object
       properties:
         annual_credits:
@@ -371,11 +365,19 @@ components:
         max_members:
           type: integer
           format: int32
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomerVo'
         name:
           type: string
         owner_id:
           type: integer
           format: int64
+        pending_invitations:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnterpriseInvitationVo'
         plan:
           type: string
         purchased_credits:
@@ -385,69 +387,15 @@ components:
           type: string
         subscribe_end:
           type: string
-    ApiResponse_EnterpriseUpgradeResultVo:
-      title: ApiResponse«EnterpriseUpgradeResultVo»
+    ApiResponse_Void:
+      title: ApiResponse«Void»
       type: object
       properties:
         code:
           type: integer
           format: int32
-        data:
-          $ref: '#/components/schemas/EnterpriseUpgradeResultVo'
         msg:
           type: string
-    ApiResponse_List_CustomerVo:
-      title: ApiResponse«List«CustomerVo»»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomerVo'
-        msg:
-          type: string
-    ApiResponse_EnterpriseStatsVo:
-      title: ApiResponse«EnterpriseStatsVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/EnterpriseStatsVo'
-        msg:
-          type: string
-    ApiResponse_EnterpriseDetailVo:
-      title: ApiResponse«EnterpriseDetailVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/EnterpriseDetailVo'
-        msg:
-          type: string
-    EnterpriseStatsVo:
-      title: EnterpriseStatsVo
-      type: object
-      properties:
-        enterprise:
-          $ref: '#/components/schemas/EnterpriseVo'
-        task_stats:
-          $ref: '#/components/schemas/TaskStatsVo'
-    UpgradeEnterpriseAO:
-      title: UpgradeEnterpriseAO
-      type: object
-      properties:
-        enterprise_name:
-          type: string
-        plan_id:
-          type: integer
-          format: int64
     TaskStatsVo:
       title: TaskStatsVo
       type: object
@@ -520,16 +468,75 @@ components:
           format: int32
         username:
           type: string
-    InviteMemberAO:
-      title: InviteMemberAO
+    ApiResponse_EnterpriseUpgradeResultVo:
+      title: ApiResponse«EnterpriseUpgradeResultVo»
       type: object
       properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/EnterpriseUpgradeResultVo'
+        msg:
+          type: string
+    ApiResponse_EnterpriseDetailVo:
+      title: ApiResponse«EnterpriseDetailVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/EnterpriseDetailVo'
+        msg:
+          type: string
+    EnterpriseUpgradeResultVo:
+      title: EnterpriseUpgradeResultVo
+      type: object
+      properties:
+        enterprise:
+          $ref: '#/components/schemas/EnterpriseVo'
+        user:
+          $ref: '#/components/schemas/CustomerVo'
+    EnterpriseInvitationVo:
+      title: EnterpriseInvitationVo
+      type: object
+      properties:
+        created_at:
+          type: string
+        enterprise_id:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        invitee_id:
+          type: integer
+          format: int64
+        invitee_phone:
+          type: string
+        inviter_id:
+          type: integer
+          format: int64
         member_level:
           type: string
-        phone:
+        responded_at:
           type: string
-    EnterpriseDetailVo:
-      title: EnterpriseDetailVo
+        status:
+          type: string
+    ApiResponse_EnterpriseStatsVo:
+      title: ApiResponse«EnterpriseStatsVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/EnterpriseStatsVo'
+        msg:
+          type: string
+    EnterpriseVo:
+      title: EnterpriseVo
       type: object
       properties:
         annual_credits:
@@ -558,19 +565,11 @@ components:
         max_members:
           type: integer
           format: int32
-        members:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomerVo'
         name:
           type: string
         owner_id:
           type: integer
           format: int64
-        pending_invitations:
-          type: array
-          items:
-            $ref: '#/components/schemas/EnterpriseInvitationVo'
         plan:
           type: string
         purchased_credits:
@@ -586,11 +585,12 @@ components:
       properties:
         member_level:
           type: string
-    EnterpriseUpgradeResultVo:
-      title: EnterpriseUpgradeResultVo
+    UpgradeEnterpriseAO:
+      title: UpgradeEnterpriseAO
       type: object
       properties:
-        enterprise:
-          $ref: '#/components/schemas/EnterpriseVo'
-        user:
-          $ref: '#/components/schemas/CustomerVo'
+        enterprise_name:
+          type: string
+        plan_id:
+          type: integer
+          format: int64

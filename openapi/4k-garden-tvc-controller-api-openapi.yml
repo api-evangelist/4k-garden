@@ -280,70 +280,34 @@ paths:
         x-order: '2147483647'
 components:
   schemas:
-    ApiResponse_Map_string_object:
-      title: ApiResponse«Map«string,object»»
+    TvcWorkspaceVo:
+      title: TvcWorkspaceVo
+      type: object
+      properties:
+        frozen_credits:
+          type: number
+          format: bigdecimal
+        member_expire:
+          type: string
+        member_level:
+          type: string
+        recent_tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/TvcTaskListVo'
+        stats:
+          $ref: '#/components/schemas/TvcStatsVo'
+    ApiResponse_TvcTaskCreateResultVo:
+      title: ApiResponse«TvcTaskCreateResultVo»
       type: object
       properties:
         code:
           type: integer
           format: int32
         data:
-          type: object
+          $ref: '#/components/schemas/TvcTaskCreateResultVo'
         msg:
           type: string
-    ListTvcTasksAO:
-      title: ListTvcTasksAO
-      type: object
-      properties:
-        page:
-          type: integer
-          format: int32
-        page_size:
-          type: integer
-          format: int32
-        status:
-          type: string
-    TvcTaskReviseAO:
-      title: TvcTaskReviseAO
-      type: object
-      properties:
-        feedback:
-          type: string
-        task_id:
-          type: integer
-          format: int64
-    LinkmanInfo:
-      title: LinkmanInfo
-      type: object
-      properties:
-        company:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        wechat:
-          type: string
-    CreateCinemaTaskAO:
-      title: CreateCinemaTaskAO
-      type: object
-      properties:
-        duration:
-          type: number
-          format: bigdecimal
-        linkman_info:
-          $ref: '#/components/schemas/LinkmanInfo'
-        title:
-          type: string
-    TvcTaskCancelAO:
-      title: TvcTaskCancelAO
-      type: object
-      properties:
-        cancel_reason:
-          type: string
-        task_id:
-          type: integer
-          format: int64
     TvcStatsVo:
       title: TvcStatsVo
       type: object
@@ -360,6 +324,19 @@ components:
         reviewing_count:
           type: integer
           format: int64
+    TvcRevisionVo:
+      title: TvcRevisionVo
+      type: object
+      properties:
+        created_at:
+          type: string
+        customer_feedback:
+          type: string
+        result_url:
+          type: string
+        revision_no:
+          type: integer
+          format: int32
     TvcTaskDetailVo:
       title: TvcTaskDetailVo
       type: object
@@ -424,93 +401,15 @@ components:
         video_size:
           type: number
           format: bigdecimal
-    ApiResponse_TvcTaskDetailVo:
-      title: ApiResponse«TvcTaskDetailVo»
+    TvcTaskCancelAO:
+      title: TvcTaskCancelAO
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/TvcTaskDetailVo'
-        msg:
+        cancel_reason:
           type: string
-    ApiResponse_TvcTaskCreateResultVo:
-      title: ApiResponse«TvcTaskCreateResultVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/TvcTaskCreateResultVo'
-        msg:
-          type: string
-    TvcWorkspaceVo:
-      title: TvcWorkspaceVo
-      type: object
-      properties:
-        frozen_credits:
-          type: number
-          format: bigdecimal
-        member_expire:
-          type: string
-        member_level:
-          type: string
-        recent_tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/TvcTaskListVo'
-        stats:
-          $ref: '#/components/schemas/TvcStatsVo'
-    ApiResponse_TvcWorkspaceVo:
-      title: ApiResponse«TvcWorkspaceVo»
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        data:
-          $ref: '#/components/schemas/TvcWorkspaceVo'
-        msg:
-          type: string
-    TvcTaskIdAO:
-      title: TvcTaskIdAO
-      type: object
-      properties:
         task_id:
           type: integer
           format: int64
-    TvcRevisionVo:
-      title: TvcRevisionVo
-      type: object
-      properties:
-        created_at:
-          type: string
-        customer_feedback:
-          type: string
-        result_url:
-          type: string
-        revision_no:
-          type: integer
-          format: int32
-    TvcTaskCreateResultVo:
-      title: TvcTaskCreateResultVo
-      type: object
-      properties:
-        cost_credits:
-          type: number
-          format: bigdecimal
-        task_no:
-          type: string
-        video_duration:
-          type: number
-          format: bigdecimal
-        video_fps:
-          type: number
-          format: bigdecimal
-        video_resolution:
-          type: string
     TvcTaskListVo:
       title: TvcTaskListVo
       type: object
@@ -538,3 +437,104 @@ components:
         video_duration:
           type: number
           format: bigdecimal
+    ListTvcTasksAO:
+      title: ListTvcTasksAO
+      type: object
+      properties:
+        page:
+          type: integer
+          format: int32
+        page_size:
+          type: integer
+          format: int32
+        status:
+          type: string
+    ApiResponse_Map_string_object:
+      title: ApiResponse«Map«string,object»»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          type: object
+        msg:
+          type: string
+    CreateCinemaTaskAO:
+      title: CreateCinemaTaskAO
+      type: object
+      properties:
+        duration:
+          type: number
+          format: bigdecimal
+        linkman_info:
+          $ref: '#/components/schemas/LinkmanInfo'
+        title:
+          type: string
+    LinkmanInfo:
+      title: LinkmanInfo
+      type: object
+      properties:
+        company:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        wechat:
+          type: string
+    ApiResponse_TvcWorkspaceVo:
+      title: ApiResponse«TvcWorkspaceVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/TvcWorkspaceVo'
+        msg:
+          type: string
+    TvcTaskCreateResultVo:
+      title: TvcTaskCreateResultVo
+      type: object
+      properties:
+        cost_credits:
+          type: number
+          format: bigdecimal
+        task_no:
+          type: string
+        video_duration:
+          type: number
+          format: bigdecimal
+        video_fps:
+          type: number
+          format: bigdecimal
+        video_resolution:
+          type: string
+    TvcTaskIdAO:
+      title: TvcTaskIdAO
+      type: object
+      properties:
+        task_id:
+          type: integer
+          format: int64
+    TvcTaskReviseAO:
+      title: TvcTaskReviseAO
+      type: object
+      properties:
+        feedback:
+          type: string
+        task_id:
+          type: integer
+          format: int64
+    ApiResponse_TvcTaskDetailVo:
+      title: ApiResponse«TvcTaskDetailVo»
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/TvcTaskDetailVo'
+        msg:
+          type: string
