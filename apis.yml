@@ -177,6 +177,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Pricing
+  url: https://video-cn.fly4k.com/api/user/productList
 - type: Overlay
   url: overlays/4k-garden-diebian-ai-overlay.yaml
 - type: AgentSkill
