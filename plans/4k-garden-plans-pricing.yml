@@ -78,3 +78,34 @@ gaps:
 - No human-readable pricing page was found; the only public pricing surface is the JSON catalogue endpoint.
 - Two adjacent catalogue endpoints (member-plans, credit-packages) return HTTP 500.
 - No overage policy is published.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: 体验会员
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: 标准会员
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: 标准会员
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: 标准会员
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
