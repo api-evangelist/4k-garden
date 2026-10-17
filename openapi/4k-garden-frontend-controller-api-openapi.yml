@@ -231,6 +231,9 @@ paths:
         x-order: '2147483647'
 components:
   schemas:
+    InputStream:
+      title: InputStream
+      type: object
     Resource:
       title: Resource
       type: object
@@ -254,6 +257,3 @@ components:
         url:
           type: string
           format: url
-    InputStream:
-      title: InputStream
-      type: object
