@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-enterprise-plan-list-vo-schema.json",
+  "title": "ApiResponse«EnterprisePlanListVo»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_EnterprisePlanListVo",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "$ref": "#/$defs/EnterprisePlanListVo"
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "EnterprisePlan": {
+      "title": "EnterprisePlan",
+      "type": "object",
+      "properties": {
+        "annualCredits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "discountRate": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "maxConcurrent": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxFileSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxMembers": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "planCode": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "priceYuan": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "EnterprisePlanListVo": {
+      "title": "EnterprisePlanListVo",
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EnterprisePlan"
+          }
+        }
+      }
+    }
+  }
+}

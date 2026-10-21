@@ -12,7 +12,7 @@ x-provenance:
     metadata that the springdoc-generated original omits; none of them invents behaviour.
     The actions are limited to facts established elsewhere in this repository and
     evidenced there.
-extends: ../openapi/4k-garden-diebian-ai-openapi.json
+extends: ../openapi/_original/4k-garden-diebian-ai-openapi.json
 actions:
 - target: $.info
   description: Identify the operating company behind the product name.

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-list-order-list-vo-schema.json",
+  "title": "ApiResponse«List«OrderListVO»»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_List_OrderListVO",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/OrderListVO"
+      }
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "OrderListVO": {
+      "title": "OrderListVO",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "crystals": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "packageName": {
+          "type": "string"
+        },
+        "paymentMethod": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

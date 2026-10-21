@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-create-task-ao-schema.json",
+  "title": "CreateTaskAO",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/CreateTaskAO",
+  "type": "object",
+  "properties": {
+    "original_duration": {
+      "type": "number",
+      "format": "bigdecimal"
+    },
+    "original_fps": {
+      "type": "number",
+      "format": "bigdecimal"
+    },
+    "original_resolution": {
+      "type": "string"
+    },
+    "output_resolution": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "string"
+    },
+    "use_enterprise_credits": {
+      "type": "boolean"
+    },
+    "video_name": {
+      "type": "string"
+    },
+    "video_size": {
+      "type": "number",
+      "format": "bigdecimal"
+    }
+  }
+}

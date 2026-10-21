@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-tvc-workspace-vo-schema.json",
+  "title": "ApiResponse«TvcWorkspaceVo»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/ApiResponse_TvcWorkspaceVo",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "$ref": "#/$defs/TvcWorkspaceVo"
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "TvcStatsVo": {
+      "title": "TvcStatsVo",
+      "type": "object",
+      "properties": {
+        "completed_count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pending_count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "producing_count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reviewing_count": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "TvcTaskListVo": {
+      "title": "TvcTaskListVo",
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "cost_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "is_urgent": {
+          "type": "boolean"
+        },
+        "review_deadline": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_no": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "video_duration": {
+          "type": "number",
+          "format": "bigdecimal"
+        }
+      }
+    },
+    "TvcWorkspaceVo": {
+      "title": "TvcWorkspaceVo",
+      "type": "object",
+      "properties": {
+        "frozen_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "member_expire": {
+          "type": "string"
+        },
+        "member_level": {
+          "type": "string"
+        },
+        "recent_tasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TvcTaskListVo"
+          }
+        },
+        "stats": {
+          "$ref": "#/$defs/TvcStatsVo"
+        }
+      }
+    }
+  }
+}

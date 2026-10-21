@@ -1,176 +1,283 @@
-generated: '2026-09-05'
+generated: '2026-10-20'
 method: derived
-source: openapi/4k-garden-diebian-ai-openapi.json
-name: 4K Garden (Diebian AI) data model
-description: Entity-relationship graph for the Diebian AI super-resolution API, DERIVED from the $ref
-  graph and id-reference fields across the 90 component schemas in the published OpenAPI. The provider
-  publishes no object reference, so entity descriptions are not asserted beyond what the contract states.
-  Response-wrapper schemas (the ApiResponse<T> generics) are excluded; only domain entities are modelled.
-api: Diebian AI Super-Resolution API
-entity_count: 60
-wrapper_schema_count: 30
-relationship_count: 35
-core_entities:
-- name: Customer
-  note: The end user principal. Surfaced as CustomerVo, CustomerInfoVo, CustomerBalanceVo, CustomerStatsVo.
-- name: Task
-  note: A video super-resolution job. The central billable object; carries status, progress, cost_credits,
-    cost_rmb and work_duration.
-- name: TvcTask
-  note: A commercial/cinema production task on the separate tvc-controller surface.
-- name: Enterprise
-  note: A team account with members, invitations, member levels and shared credits.
-- name: Order
-  note: A purchase of credits. Surfaced as OrderListVO.
-- name: Consumption
-  note: A credit-spend ledger line, paginated via PagedConsumptionVo.
-- name: Product
-  note: A purchasable credit package. Surfaced as ProductVO; the only entity readable anonymously.
-- name: CreditPackage
-  note: Credit bundle definition. Its catalogue endpoint currently returns HTTP 500.
-- name: MemberPlan
-  note: Membership tier definition. Its catalogue endpoint currently returns HTTP 500.
+generator: derive-data-model.py
+source:
+- openapi/4k-garden-auth-controller-api-openapi.yml
+- openapi/4k-garden-customer-controller-api-openapi.yml
+- openapi/4k-garden-enterprise-controller-api-openapi.yml
+- openapi/4k-garden-frontend-controller-api-openapi.yml
+- openapi/4k-garden-tvc-controller-api-openapi.yml
+notation: has_one = property $ref; has_many = array of $ref; belongs_to = <entity>_id field
+summary:
+  entities: 90
+  entities_in_spec: 90
+  relationships: 51
 entities:
-- ChangeMemberLevelAO
-- ChangePasswordAO
-- ChangePhoneAO
-- Consumption
-- CreateCinemaTaskAO
-- CreateTaskAO
-- CreditPackage
-- CreditPackageListVo
-- CreditRulesVo
-- CustomerBalanceVo
-- CustomerInfoVo
-- CustomerStatsVo
-- CustomerVo
-- EnterpriseBriefVo
-- EnterpriseDetailVo
-- EnterpriseInvitationVo
-- EnterprisePlan
-- EnterprisePlanListVo
-- EnterpriseStatsVo
-- EnterpriseUpgradeResultVo
-- EnterpriseVo
-- FpsRateTierHighVo
-- FpsRateTierVo
-- FpsRatesVo
-- HealthVo
-- InputStream
-- InviteMemberAO
-- LinkmanInfo
-- ListTvcTasksAO
-- LoginAO
-- LoginResultVo
-- LoginSmsAO
-- MemberPlan
-- MemberPlanListVo
-- OrderListVO
-- PagedConsumptionVo
-- PagedTaskVo
-- ProductVO
-- RegisterAO
-- RegisterConfigVo
-- ResetPasswordAO
-- Resource
-- SendCodeAO
-- Task
-- TaskCreateResultVo
-- TaskDetailVo
-- TaskStatsVo
-- TaskUploadResultVo
-- TvcRevisionVo
-- TvcStatsVo
-- TvcTaskCancelAO
-- TvcTaskCreateResultVo
-- TvcTaskDetailVo
-- TvcTaskIdAO
-- TvcTaskListVo
-- TvcTaskReviseAO
-- TvcWorkspaceVo
-- UpdateProfileAO
-- UpgradeEnterpriseAO
-- VerificationCodeVO
+- name: ApiResponse
+  fields: 3
+- name: ApiResponse_CreditPackageListVo
+  fields: 3
+- name: ApiResponse_CreditRulesVo
+  fields: 3
+- name: ApiResponse_CustomerBalanceVo
+  fields: 3
+- name: ApiResponse_CustomerInfoVo
+  fields: 3
+- name: ApiResponse_CustomerStatsVo
+  fields: 3
+- name: ApiResponse_CustomerVo
+  fields: 3
+- name: ApiResponse_EnterpriseDetailVo
+  fields: 3
+- name: ApiResponse_EnterprisePlanListVo
+  fields: 3
+- name: ApiResponse_EnterpriseStatsVo
+  fields: 3
+- name: ApiResponse_EnterpriseUpgradeResultVo
+  fields: 3
+- name: ApiResponse_HealthVo
+  fields: 3
+- name: ApiResponse_JSONObject
+  fields: 3
+- name: ApiResponse_List_CustomerVo
+  fields: 3
+- name: ApiResponse_List_OrderListVO
+  fields: 3
+- name: ApiResponse_List_ProductVO
+  fields: 3
+- name: ApiResponse_LoginResultVo
+  fields: 3
+- name: ApiResponse_Map_string_object
+  fields: 3
+- name: ApiResponse_MemberPlanListVo
+  fields: 3
+- name: ApiResponse_PagedConsumptionVo
+  fields: 3
+- name: ApiResponse_PagedTaskVo
+  fields: 3
+- name: ApiResponse_RegisterConfigVo
+  fields: 3
+- name: ApiResponse_TaskCreateResultVo
+  fields: 3
+- name: ApiResponse_TaskDetailVo
+  fields: 3
+- name: ApiResponse_TaskUploadResultVo
+  fields: 3
+- name: ApiResponse_TvcTaskCreateResultVo
+  fields: 3
+- name: ApiResponse_TvcTaskDetailVo
+  fields: 3
+- name: ApiResponse_TvcWorkspaceVo
+  fields: 3
+- name: ApiResponse_VerificationCodeVO
+  fields: 3
+- name: ApiResponse_Void
+  fields: 2
+- name: ChangeMemberLevelAO
+  fields: 1
+- name: ChangePasswordAO
+  fields: 2
+- name: ChangePhoneAO
+  fields: 3
+- name: Consumption
+  fields: 9
+- name: CreateCinemaTaskAO
+  fields: 3
+- name: CreateTaskAO
+  fields: 8
+- name: CreditPackage
+  fields: 12
+- name: CreditPackageListVo
+  fields: 2
+- name: CreditRulesVo
+  fields: 2
+- name: CustomerBalanceVo
+  fields: 14
+- name: CustomerInfoVo
+  fields: 25
+- name: CustomerStatsVo
+  fields: 6
+- name: CustomerVo
+  fields: 22
+- name: EnterpriseBriefVo
+  fields: 7
+- name: EnterpriseDetailVo
+  fields: 17
+- name: EnterpriseInvitationVo
+  fields: 9
+- name: EnterprisePlan
+  fields: 14
+- name: EnterprisePlanListVo
+  fields: 1
+- name: EnterpriseStatsVo
+  fields: 2
+- name: EnterpriseUpgradeResultVo
+  fields: 2
+- name: EnterpriseVo
+  fields: 15
+- name: FpsRateTierHighVo
+  fields: 2
+- name: FpsRateTierVo
+  fields: 2
+- name: FpsRatesVo
+  fields: 3
+- name: HealthVo
+  fields: 2
+- name: InputStream
+  fields: 0
+- name: InviteMemberAO
+  fields: 2
+- name: LinkmanInfo
+  fields: 4
+- name: ListTvcTasksAO
+  fields: 3
+- name: LoginAO
+  fields: 3
+- name: LoginResultVo
+  fields: 2
+- name: LoginSmsAO
+  fields: 2
+- name: MemberPlan
+  fields: 13
+- name: MemberPlanListVo
+  fields: 1
+- name: OrderListVO
+  fields: 5
+- name: PagedConsumptionVo
+  fields: 5
+- name: PagedTaskVo
+  fields: 5
+- name: ProductVO
+  fields: 10
+- name: RegisterAO
+  fields: 5
+- name: RegisterConfigVo
+  fields: 1
+- name: ResetPasswordAO
+  fields: 3
+- name: Resource
+  fields: 8
+- name: SendCodeAO
+  fields: 4
+- name: Task
+  fields: 39
+- name: TaskCreateResultVo
+  fields: 9
+- name: TaskDetailVo
+  fields: 9
+- name: TaskStatsVo
+  fields: 4
+- name: TaskUploadResultVo
+  fields: 15
+- name: TvcRevisionVo
+  fields: 4
+- name: TvcStatsVo
+  fields: 4
+- name: TvcTaskCancelAO
+  fields: 2
+- name: TvcTaskCreateResultVo
+  fields: 5
+- name: TvcTaskDetailVo
+  fields: 25
+- name: TvcTaskIdAO
+  fields: 1
+- name: TvcTaskListVo
+  fields: 10
+- name: TvcTaskReviseAO
+  fields: 2
+- name: TvcWorkspaceVo
+  fields: 5
+- name: UpdateProfileAO
+  fields: 1
+- name: UpgradeEnterpriseAO
+  fields: 2
+- name: VerificationCodeVO
+  fields: 2
 relationships:
-- from: CreateCinemaTaskAO
-  to: LinkmanInfo
+- from: ApiResponse_VerificationCodeVO
+  to: VerificationCodeVO
   type: has_one
-  via: linkman_info
-- from: CreditPackageListVo
-  to: CreditPackage
+  via: data
+- from: ApiResponse_LoginResultVo
+  to: LoginResultVo
+  type: has_one
+  via: data
+- from: LoginResultVo
+  to: CustomerVo
+  type: has_one
+  via: user
+- from: ApiResponse_RegisterConfigVo
+  to: RegisterConfigVo
+  type: has_one
+  via: data
+- from: ApiResponse_HealthVo
+  to: HealthVo
+  type: has_one
+  via: data
+- from: ApiResponse_CustomerInfoVo
+  to: CustomerInfoVo
+  type: has_one
+  via: data
+- from: ApiResponse_TaskDetailVo
+  to: TaskDetailVo
+  type: has_one
+  via: data
+- from: ApiResponse_TaskUploadResultVo
+  to: TaskUploadResultVo
+  type: has_one
+  via: data
+- from: ApiResponse_List_OrderListVO
+  to: OrderListVO
   type: has_many
+  via: data
+- from: EnterprisePlanListVo
+  to: EnterprisePlan
+  type: has_many
+  via: data
+- from: ApiResponse_CreditPackageListVo
+  to: CreditPackageListVo
+  type: has_one
+  via: data
+- from: ApiResponse_CustomerVo
+  to: CustomerVo
+  type: has_one
+  via: data
+- from: ApiResponse_MemberPlanListVo
+  to: MemberPlanListVo
+  type: has_one
   via: data
 - from: CreditRulesVo
   to: FpsRatesVo
   type: has_one
   via: fps_rates
-- from: CustomerBalanceVo
-  to: EnterpriseBriefVo
+- from: ApiResponse_TaskCreateResultVo
+  to: TaskCreateResultVo
   type: has_one
-  via: enterprise
-- from: CustomerInfoVo
-  to: null
-  type: belongs_to
-  via: enterprise_id
-  note: id-reference field; target inferred by name only
-- from: CustomerVo
-  to: null
-  type: belongs_to
-  via: enterprise_id
-  note: id-reference field; target inferred by name only
-- from: EnterpriseDetailVo
-  to: CustomerVo
-  type: has_many
-  via: members
-- from: EnterpriseDetailVo
-  to: null
-  type: belongs_to
-  via: owner_id
-  note: id-reference field; target inferred by name only
-- from: EnterpriseDetailVo
-  to: EnterpriseInvitationVo
-  type: has_many
-  via: pending_invitations
-- from: EnterpriseInvitationVo
-  to: null
-  type: belongs_to
-  via: enterprise_id
-  note: id-reference field; target inferred by name only
-- from: EnterpriseInvitationVo
-  to: null
-  type: belongs_to
-  via: invitee_id
-  note: id-reference field; target inferred by name only
-- from: EnterpriseInvitationVo
-  to: null
-  type: belongs_to
-  via: inviter_id
-  note: id-reference field; target inferred by name only
-- from: EnterprisePlanListVo
-  to: EnterprisePlan
+  via: data
+- from: ApiResponse_CustomerStatsVo
+  to: CustomerStatsVo
+  type: has_one
+  via: data
+- from: PagedConsumptionVo
+  to: Consumption
   type: has_many
   via: data
-- from: EnterpriseStatsVo
-  to: EnterpriseVo
+- from: ApiResponse_CustomerBalanceVo
+  to: CustomerBalanceVo
   type: has_one
-  via: enterprise
-- from: EnterpriseStatsVo
-  to: TaskStatsVo
+  via: data
+- from: ApiResponse_PagedConsumptionVo
+  to: PagedConsumptionVo
   type: has_one
-  via: task_stats
-- from: EnterpriseUpgradeResultVo
-  to: EnterpriseVo
+  via: data
+- from: ApiResponse_CreditRulesVo
+  to: CreditRulesVo
   type: has_one
-  via: enterprise
-- from: EnterpriseUpgradeResultVo
-  to: CustomerVo
-  type: has_one
-  via: user
-- from: EnterpriseVo
-  to: null
-  type: belongs_to
-  via: owner_id
-  note: id-reference field; target inferred by name only
+  via: data
+- from: CreditPackageListVo
+  to: CreditPackage
+  type: has_many
+  via: data
 - from: FpsRatesVo
   to: FpsRateTierHighVo
   type: has_one
@@ -183,55 +290,86 @@ relationships:
   to: FpsRateTierVo
   type: has_one
   via: medium
-- from: LoginResultVo
-  to: CustomerVo
+- from: CustomerBalanceVo
+  to: EnterpriseBriefVo
   type: has_one
-  via: user
+  via: enterprise
 - from: MemberPlanListVo
   to: MemberPlan
   type: has_many
   via: data
-- from: PagedConsumptionVo
-  to: Consumption
+- from: ApiResponse_List_ProductVO
+  to: ProductVO
   type: has_many
+  via: data
+- from: ApiResponse_PagedTaskVo
+  to: PagedTaskVo
+  type: has_one
+  via: data
+- from: ApiResponse_EnterprisePlanListVo
+  to: EnterprisePlanListVo
+  type: has_one
   via: data
 - from: PagedTaskVo
   to: Task
   type: has_many
   via: tasks
+- from: ApiResponse_EnterpriseDetailVo
+  to: EnterpriseDetailVo
+  type: has_one
+  via: data
+- from: EnterpriseDetailVo
+  to: CustomerVo
+  type: has_many
+  via: members
+- from: EnterpriseDetailVo
+  to: EnterpriseInvitationVo
+  type: has_many
+  via: pending_invitations
+- from: EnterpriseStatsVo
+  to: EnterpriseVo
+  type: has_one
+  via: enterprise
+- from: EnterpriseStatsVo
+  to: TaskStatsVo
+  type: has_one
+  via: task_stats
+- from: ApiResponse_EnterpriseUpgradeResultVo
+  to: EnterpriseUpgradeResultVo
+  type: has_one
+  via: data
+- from: EnterpriseUpgradeResultVo
+  to: EnterpriseVo
+  type: has_one
+  via: enterprise
+- from: EnterpriseUpgradeResultVo
+  to: CustomerVo
+  type: has_one
+  via: user
+- from: ApiResponse_List_CustomerVo
+  to: CustomerVo
+  type: has_many
+  via: data
+- from: ApiResponse_EnterpriseStatsVo
+  to: EnterpriseStatsVo
+  type: has_one
+  via: data
 - from: Resource
   to: InputStream
   type: has_one
   via: inputStream
-- from: TaskCreateResultVo
-  to: null
-  type: belongs_to
-  via: user_id
-  note: id-reference field; target inferred by name only
-- from: TaskUploadResultVo
-  to: null
-  type: belongs_to
-  via: user_id
-  note: id-reference field; target inferred by name only
-- from: TvcTaskCancelAO
-  to: null
+- from: TvcTaskReviseAO
+  to: Task
   type: belongs_to
   via: task_id
-  note: id-reference field; target inferred by name only
+- from: ApiResponse_TvcWorkspaceVo
+  to: TvcWorkspaceVo
+  type: has_one
+  via: data
 - from: TvcTaskDetailVo
   to: TvcRevisionVo
   type: has_many
   via: revisions
-- from: TvcTaskIdAO
-  to: null
-  type: belongs_to
-  via: task_id
-  note: id-reference field; target inferred by name only
-- from: TvcTaskReviseAO
-  to: null
-  type: belongs_to
-  via: task_id
-  note: id-reference field; target inferred by name only
 - from: TvcWorkspaceVo
   to: TvcTaskListVo
   type: has_many
@@ -240,15 +378,23 @@ relationships:
   to: TvcStatsVo
   type: has_one
   via: stats
-- from: UpgradeEnterpriseAO
-  to: null
+- from: TvcTaskIdAO
+  to: Task
   type: belongs_to
-  via: plan_id
-  note: id-reference field; target inferred by name only
-id_prefixes:
-  published: false
-  note: Identifiers are bare int64 values; no prefixed or typed id scheme is used.
-gaps:
-- No published object reference.
-- No id prefixing or typed identifiers.
-- Entity descriptions absent from the contract - every schema carries only a title and property types.
+  via: task_id
+- from: ApiResponse_TvcTaskDetailVo
+  to: TvcTaskDetailVo
+  type: has_one
+  via: data
+- from: CreateCinemaTaskAO
+  to: LinkmanInfo
+  type: has_one
+  via: linkman_info
+- from: TvcTaskCancelAO
+  to: Task
+  type: belongs_to
+  via: task_id
+- from: ApiResponse_TvcTaskCreateResultVo
+  to: TvcTaskCreateResultVo
+  type: has_one
+  via: data

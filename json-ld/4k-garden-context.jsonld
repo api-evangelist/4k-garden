@@ -1,0 +1,913 @@
+{
+  "@context": {
+    "@vocab": "https://4kgarden.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "4k": "https://4kgarden.com/schema#",
+    "ApiResponse_VerificationCodeVO": "4k:ApiResponse_VerificationCodeVO",
+    "code": {
+      "@id": "4k:code",
+      "@type": "xsd:integer"
+    },
+    "data": {
+      "@id": "4k:data",
+      "@type": "@id"
+    },
+    "msg": {
+      "@id": "4k:msg",
+      "@type": "xsd:string"
+    },
+    "RegisterAO": "4k:RegisterAO",
+    "company": {
+      "@id": "4k:company",
+      "@type": "xsd:string"
+    },
+    "invite_code": {
+      "@id": "4k:invite_code",
+      "@type": "xsd:string"
+    },
+    "password": {
+      "@id": "4k:password",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "4k:phone",
+      "@type": "xsd:string"
+    },
+    "sms_code": {
+      "@id": "4k:sms_code",
+      "@type": "xsd:string"
+    },
+    "LoginAO": "4k:LoginAO",
+    "username": {
+      "@id": "4k:username",
+      "@type": "xsd:string"
+    },
+    "ApiResponse_Void": "4k:ApiResponse_Void",
+    "CustomerVo": "4k:CustomerVo",
+    "balance_credits": {
+      "@id": "4k:balance_credits",
+      "@type": "xsd:decimal"
+    },
+    "balance_gift_credits": {
+      "@id": "4k:balance_gift_credits",
+      "@type": "xsd:decimal"
+    },
+    "balance_member_credits": {
+      "@id": "4k:balance_member_credits",
+      "@type": "xsd:decimal"
+    },
+    "balance_purchased_credits": {
+      "@id": "4k:balance_purchased_credits",
+      "@type": "xsd:decimal"
+    },
+    "created_at": {
+      "@id": "4k:created_at",
+      "@type": "xsd:string"
+    },
+    "display_name": {
+      "@id": "4k:display_name",
+      "@type": "xsd:string"
+    },
+    "enterprise_id": {
+      "@id": "4k:enterprise_id",
+      "@type": "xsd:integer"
+    },
+    "enterprise_member_level": {
+      "@id": "4k:enterprise_member_level",
+      "@type": "xsd:string"
+    },
+    "enterprise_role": {
+      "@id": "4k:enterprise_role",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "4k:id",
+      "@type": "xsd:integer"
+    },
+    "member_billing_cycle": {
+      "@id": "4k:member_billing_cycle",
+      "@type": "xsd:string"
+    },
+    "member_expire": {
+      "@id": "4k:member_expire",
+      "@type": "xsd:string"
+    },
+    "member_level": {
+      "@id": "4k:member_level",
+      "@type": "xsd:string"
+    },
+    "monthly_task_count": {
+      "@id": "4k:monthly_task_count",
+      "@type": "xsd:integer"
+    },
+    "nickname": {
+      "@id": "4k:nickname",
+      "@type": "xsd:string"
+    },
+    "role": {
+      "@id": "4k:role",
+      "@type": "xsd:string"
+    },
+    "sales_person": {
+      "@id": "4k:sales_person",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "4k:status",
+      "@type": "xsd:string"
+    },
+    "trial_gift_days": {
+      "@id": "4k:trial_gift_days",
+      "@type": "xsd:integer"
+    },
+    "ApiResponse_LoginResultVo": "4k:ApiResponse_LoginResultVo",
+    "LoginResultVo": "4k:LoginResultVo",
+    "token": {
+      "@id": "4k:token",
+      "@type": "xsd:string"
+    },
+    "user": {
+      "@id": "4k:user",
+      "@type": "@id"
+    },
+    "SendCodeAO": "4k:SendCodeAO",
+    "action": {
+      "@id": "4k:action",
+      "@type": "xsd:string"
+    },
+    "codeKey": {
+      "@id": "4k:codeKey",
+      "@type": "xsd:string"
+    },
+    "CustomerInfoVo": "4k:CustomerInfoVo",
+    "balance_rmb": {
+      "@id": "4k:balance_rmb",
+      "@type": "xsd:decimal"
+    },
+    "credit_rate": {
+      "@id": "4k:credit_rate",
+      "@type": "xsd:decimal"
+    },
+    "member_level_label": {
+      "@id": "4k:member_level_label",
+      "@type": "xsd:string"
+    },
+    "VerificationCodeVO": "4k:VerificationCodeVO",
+    "pictureUrl": {
+      "@id": "4k:pictureUrl",
+      "@type": "xsd:string"
+    },
+    "ApiResponse_RegisterConfigVo": "4k:ApiResponse_RegisterConfigVo",
+    "HealthVo": "4k:HealthVo",
+    "version": {
+      "@id": "4k:version",
+      "@type": "xsd:string"
+    },
+    "LoginSmsAO": "4k:LoginSmsAO",
+    "ResetPasswordAO": "4k:ResetPasswordAO",
+    "new_password": {
+      "@id": "4k:new_password",
+      "@type": "xsd:string"
+    },
+    "ApiResponse_HealthVo": "4k:ApiResponse_HealthVo",
+    "ApiResponse_CustomerInfoVo": "4k:ApiResponse_CustomerInfoVo",
+    "RegisterConfigVo": "4k:RegisterConfigVo",
+    "invite_code_required": {
+      "@id": "4k:invite_code_required",
+      "@type": "xsd:boolean"
+    },
+    "ChangePasswordAO": "4k:ChangePasswordAO",
+    "old_password": {
+      "@id": "4k:old_password",
+      "@type": "xsd:string"
+    },
+    "MemberPlan": "4k:MemberPlan",
+    "billingCycle": {
+      "@id": "4k:billingCycle",
+      "@type": "xsd:string"
+    },
+    "createdAt": {
+      "@id": "4k:createdAt",
+      "@type": "xsd:dateTime"
+    },
+    "credits": {
+      "@id": "4k:credits",
+      "@type": "xsd:integer"
+    },
+    "description": {
+      "@id": "4k:description",
+      "@type": "xsd:string"
+    },
+    "discountRate": {
+      "@id": "4k:discountRate",
+      "@type": "xsd:decimal"
+    },
+    "isActive": {
+      "@id": "4k:isActive",
+      "@type": "xsd:boolean"
+    },
+    "level": {
+      "@id": "4k:level",
+      "@type": "xsd:string"
+    },
+    "maxFileSize": {
+      "@id": "4k:maxFileSize",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "4k:name",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "4k:price",
+      "@type": "xsd:integer"
+    },
+    "priceYuan": {
+      "@id": "4k:priceYuan",
+      "@type": "xsd:decimal"
+    },
+    "sortOrder": {
+      "@id": "4k:sortOrder",
+      "@type": "xsd:integer"
+    },
+    "ApiResponse_TaskDetailVo": "4k:ApiResponse_TaskDetailVo",
+    "ApiResponse_TaskUploadResultVo": "4k:ApiResponse_TaskUploadResultVo",
+    "ApiResponse_List_OrderListVO": "4k:ApiResponse_List_OrderListVO",
+    "EnterprisePlanListVo": "4k:EnterprisePlanListVo",
+    "ApiResponse_CreditPackageListVo": "4k:ApiResponse_CreditPackageListVo",
+    "TaskCreateResultVo": "4k:TaskCreateResultVo",
+    "base_credits": {
+      "@id": "4k:base_credits",
+      "@type": "xsd:decimal"
+    },
+    "cost_credits": {
+      "@id": "4k:cost_credits",
+      "@type": "xsd:decimal"
+    },
+    "discount_rate": {
+      "@id": "4k:discount_rate",
+      "@type": "xsd:decimal"
+    },
+    "priority": {
+      "@id": "4k:priority",
+      "@type": "xsd:integer"
+    },
+    "user_id": {
+      "@id": "4k:user_id",
+      "@type": "xsd:integer"
+    },
+    "video_name": {
+      "@id": "4k:video_name",
+      "@type": "xsd:string"
+    },
+    "work_duration": {
+      "@id": "4k:work_duration",
+      "@type": "xsd:decimal"
+    },
+    "Consumption": "4k:Consumption",
+    "creditSource": {
+      "@id": "4k:creditSource",
+      "@type": "xsd:string"
+    },
+    "enterpriseId": {
+      "@id": "4k:enterpriseId",
+      "@type": "xsd:integer"
+    },
+    "relatedId": {
+      "@id": "4k:relatedId",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "4k:type",
+      "@type": "xsd:string"
+    },
+    "userId": {
+      "@id": "4k:userId",
+      "@type": "xsd:integer"
+    },
+    "Task": "4k:Task",
+    "auditDesc": {
+      "@id": "4k:auditDesc",
+      "@type": "xsd:string"
+    },
+    "auditOperator": {
+      "@id": "4k:auditOperator",
+      "@type": "xsd:string"
+    },
+    "auditState": {
+      "@id": "4k:auditState",
+      "@type": "xsd:integer"
+    },
+    "auditTime": {
+      "@id": "4k:auditTime",
+      "@type": "xsd:dateTime"
+    },
+    "completedAt": {
+      "@id": "4k:completedAt",
+      "@type": "xsd:dateTime"
+    },
+    "costCredits": {
+      "@id": "4k:costCredits",
+      "@type": "xsd:decimal"
+    },
+    "costGiftCredits": {
+      "@id": "4k:costGiftCredits",
+      "@type": "xsd:decimal"
+    },
+    "costMemberCredits": {
+      "@id": "4k:costMemberCredits",
+      "@type": "xsd:decimal"
+    },
+    "costPurchasedCredits": {
+      "@id": "4k:costPurchasedCredits",
+      "@type": "xsd:decimal"
+    },
+    "downloadCount": {
+      "@id": "4k:downloadCount",
+      "@type": "xsd:integer"
+    },
+    "downloadRemaining": {
+      "@id": "4k:downloadRemaining",
+      "@type": "xsd:integer"
+    },
+    "errorMessage": {
+      "@id": "4k:errorMessage",
+      "@type": "xsd:string"
+    },
+    "estimatedCompletionTime": {
+      "@id": "4k:estimatedCompletionTime",
+      "@type": "xsd:string"
+    },
+    "hevc": {
+      "@id": "4k:hevc",
+      "@type": "xsd:integer"
+    },
+    "model": {
+      "@id": "4k:model",
+      "@type": "xsd:integer"
+    },
+    "originalDuration": {
+      "@id": "4k:originalDuration",
+      "@type": "xsd:decimal"
+    },
+    "originalFps": {
+      "@id": "4k:originalFps",
+      "@type": "xsd:decimal"
+    },
+    "originalHeight": {
+      "@id": "4k:originalHeight",
+      "@type": "xsd:integer"
+    },
+    "originalResolution": {
+      "@id": "4k:originalResolution",
+      "@type": "xsd:string"
+    },
+    "originalWidth": {
+      "@id": "4k:originalWidth",
+      "@type": "xsd:integer"
+    },
+    "outputResolution": {
+      "@id": "4k:outputResolution",
+      "@type": "xsd:string"
+    },
+    "outputUrl": {
+      "@id": "4k:outputUrl",
+      "@type": "xsd:string"
+    },
+    "prioritySeq": {
+      "@id": "4k:prioritySeq",
+      "@type": "xsd:integer"
+    },
+    "progress": {
+      "@id": "4k:progress",
+      "@type": "xsd:integer"
+    },
+    "remark": {
+      "@id": "4k:remark",
+      "@type": "xsd:string"
+    },
+    "scheme": {
+      "@id": "4k:scheme",
+      "@type": "xsd:integer"
+    },
+    "sourceUrl": {
+      "@id": "4k:sourceUrl",
+      "@type": "xsd:string"
+    },
+    "updatedAt": {
+      "@id": "4k:updatedAt",
+      "@type": "xsd:dateTime"
+    },
+    "useEnterpriseCredits": {
+      "@id": "4k:useEnterpriseCredits",
+      "@type": "xsd:boolean"
+    },
+    "videoName": {
+      "@id": "4k:videoName",
+      "@type": "xsd:string"
+    },
+    "videoSize": {
+      "@id": "4k:videoSize",
+      "@type": "xsd:decimal"
+    },
+    "workDuration": {
+      "@id": "4k:workDuration",
+      "@type": "xsd:decimal"
+    },
+    "UpdateProfileAO": "4k:UpdateProfileAO",
+    "ApiResponse_CustomerVo": "4k:ApiResponse_CustomerVo",
+    "ApiResponse": "4k:ApiResponse",
+    "CustomerStatsVo": "4k:CustomerStatsVo",
+    "completed_tasks": {
+      "@id": "4k:completed_tasks",
+      "@type": "xsd:integer"
+    },
+    "failed_tasks": {
+      "@id": "4k:failed_tasks",
+      "@type": "xsd:integer"
+    },
+    "processing_tasks": {
+      "@id": "4k:processing_tasks",
+      "@type": "xsd:integer"
+    },
+    "total_credits_used": {
+      "@id": "4k:total_credits_used",
+      "@type": "xsd:integer"
+    },
+    "total_credits_used_rmb": {
+      "@id": "4k:total_credits_used_rmb",
+      "@type": "xsd:integer"
+    },
+    "total_tasks": {
+      "@id": "4k:total_tasks",
+      "@type": "xsd:integer"
+    },
+    "ApiResponse_MemberPlanListVo": "4k:ApiResponse_MemberPlanListVo",
+    "TaskUploadResultVo": "4k:TaskUploadResultVo",
+    "file_size_mb": {
+      "@id": "4k:file_size_mb",
+      "@type": "xsd:string"
+    },
+    "original_duration": {
+      "@id": "4k:original_duration",
+      "@type": "xsd:decimal"
+    },
+    "original_fps": {
+      "@id": "4k:original_fps",
+      "@type": "xsd:decimal"
+    },
+    "original_resolution": {
+      "@id": "4k:original_resolution",
+      "@type": "xsd:string"
+    },
+    "real_4k": {
+      "@id": "4k:real_4k",
+      "@type": "xsd:boolean"
+    },
+    "saved_file": {
+      "@id": "4k:saved_file",
+      "@type": "xsd:string"
+    },
+    "FpsRateTierVo": "4k:FpsRateTierVo",
+    "max_fps": {
+      "@id": "4k:max_fps",
+      "@type": "xsd:integer"
+    },
+    "rate": {
+      "@id": "4k:rate",
+      "@type": "xsd:decimal"
+    },
+    "CreditRulesVo": "4k:CreditRulesVo",
+    "fps_rates": {
+      "@id": "4k:fps_rates",
+      "@type": "@id"
+    },
+    "ApiResponse_TaskCreateResultVo": "4k:ApiResponse_TaskCreateResultVo",
+    "ChangePhoneAO": "4k:ChangePhoneAO",
+    "new_phone": {
+      "@id": "4k:new_phone",
+      "@type": "xsd:string"
+    },
+    "CreditPackage": "4k:CreditPackage",
+    "bonusCredits": {
+      "@id": "4k:bonusCredits",
+      "@type": "xsd:integer"
+    },
+    "totalCredits": {
+      "@id": "4k:totalCredits",
+      "@type": "xsd:integer"
+    },
+    "EnterpriseBriefVo": "4k:EnterpriseBriefVo",
+    "annual_credits_remaining": {
+      "@id": "4k:annual_credits_remaining",
+      "@type": "xsd:decimal"
+    },
+    "plan": {
+      "@id": "4k:plan",
+      "@type": "xsd:string"
+    },
+    "purchased_credits": {
+      "@id": "4k:purchased_credits",
+      "@type": "xsd:decimal"
+    },
+    "OrderListVO": "4k:OrderListVO",
+    "amount": {
+      "@id": "4k:amount",
+      "@type": "xsd:decimal"
+    },
+    "crystals": {
+      "@id": "4k:crystals",
+      "@type": "xsd:integer"
+    },
+    "packageName": {
+      "@id": "4k:packageName",
+      "@type": "xsd:string"
+    },
+    "paymentMethod": {
+      "@id": "4k:paymentMethod",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "4k:time",
+      "@type": "xsd:dateTime"
+    },
+    "ApiResponse_CustomerStatsVo": "4k:ApiResponse_CustomerStatsVo",
+    "PagedConsumptionVo": "4k:PagedConsumptionVo",
+    "page": {
+      "@id": "4k:page",
+      "@type": "xsd:integer"
+    },
+    "page_size": {
+      "@id": "4k:page_size",
+      "@type": "xsd:integer"
+    },
+    "total": {
+      "@id": "4k:total",
+      "@type": "xsd:integer"
+    },
+    "ApiResponse_CustomerBalanceVo": "4k:ApiResponse_CustomerBalanceVo",
+    "ApiResponse_PagedConsumptionVo": "4k:ApiResponse_PagedConsumptionVo",
+    "ApiResponse_CreditRulesVo": "4k:ApiResponse_CreditRulesVo",
+    "TaskDetailVo": "4k:TaskDetailVo",
+    "cost_rmb": {
+      "@id": "4k:cost_rmb",
+      "@type": "xsd:decimal"
+    },
+    "EnterprisePlan": "4k:EnterprisePlan",
+    "annualCredits": {
+      "@id": "4k:annualCredits",
+      "@type": "xsd:integer"
+    },
+    "maxConcurrent": {
+      "@id": "4k:maxConcurrent",
+      "@type": "xsd:integer"
+    },
+    "maxMembers": {
+      "@id": "4k:maxMembers",
+      "@type": "xsd:integer"
+    },
+    "planCode": {
+      "@id": "4k:planCode",
+      "@type": "xsd:string"
+    },
+    "CreateTaskAO": "4k:CreateTaskAO",
+    "output_resolution": {
+      "@id": "4k:output_resolution",
+      "@type": "xsd:string"
+    },
+    "use_enterprise_credits": {
+      "@id": "4k:use_enterprise_credits",
+      "@type": "xsd:boolean"
+    },
+    "video_size": {
+      "@id": "4k:video_size",
+      "@type": "xsd:decimal"
+    },
+    "CreditPackageListVo": "4k:CreditPackageListVo",
+    "ProductVO": "4k:ProductVO",
+    "creditDescription": {
+      "@id": "4k:creditDescription",
+      "@type": "xsd:string"
+    },
+    "tips1": {
+      "@id": "4k:tips1",
+      "@type": "xsd:string"
+    },
+    "tips2": {
+      "@id": "4k:tips2",
+      "@type": "xsd:string"
+    },
+    "tips3": {
+      "@id": "4k:tips3",
+      "@type": "xsd:string"
+    },
+    "tips4": {
+      "@id": "4k:tips4",
+      "@type": "xsd:string"
+    },
+    "tips5": {
+      "@id": "4k:tips5",
+      "@type": "xsd:string"
+    },
+    "FpsRatesVo": "4k:FpsRatesVo",
+    "high": {
+      "@id": "4k:high",
+      "@type": "@id"
+    },
+    "low": {
+      "@id": "4k:low",
+      "@type": "@id"
+    },
+    "medium": {
+      "@id": "4k:medium",
+      "@type": "@id"
+    },
+    "CustomerBalanceVo": "4k:CustomerBalanceVo",
+    "enterprise": {
+      "@id": "4k:enterprise",
+      "@type": "@id"
+    },
+    "MemberPlanListVo": "4k:MemberPlanListVo",
+    "ApiResponse_List_ProductVO": "4k:ApiResponse_List_ProductVO",
+    "FpsRateTierHighVo": "4k:FpsRateTierHighVo",
+    "min_fps": {
+      "@id": "4k:min_fps",
+      "@type": "xsd:integer"
+    },
+    "ApiResponse_PagedTaskVo": "4k:ApiResponse_PagedTaskVo",
+    "ApiResponse_EnterprisePlanListVo": "4k:ApiResponse_EnterprisePlanListVo",
+    "ApiResponse_JSONObject": "4k:ApiResponse_JSONObject",
+    "PagedTaskVo": "4k:PagedTaskVo",
+    "tasks": {
+      "@id": "4k:tasks",
+      "@container": "@list"
+    },
+    "ChangeMemberLevelAO": "4k:ChangeMemberLevelAO",
+    "ApiResponse_EnterpriseDetailVo": "4k:ApiResponse_EnterpriseDetailVo",
+    "TaskStatsVo": "4k:TaskStatsVo",
+    "completed": {
+      "@id": "4k:completed",
+      "@type": "xsd:integer"
+    },
+    "processing": {
+      "@id": "4k:processing",
+      "@type": "xsd:integer"
+    },
+    "EnterpriseDetailVo": "4k:EnterpriseDetailVo",
+    "annual_credits": {
+      "@id": "4k:annual_credits",
+      "@type": "xsd:integer"
+    },
+    "annual_credits_used": {
+      "@id": "4k:annual_credits_used",
+      "@type": "xsd:decimal"
+    },
+    "current_member_count": {
+      "@id": "4k:current_member_count",
+      "@type": "xsd:integer"
+    },
+    "max_concurrent": {
+      "@id": "4k:max_concurrent",
+      "@type": "xsd:integer"
+    },
+    "max_members": {
+      "@id": "4k:max_members",
+      "@type": "xsd:integer"
+    },
+    "members": {
+      "@id": "4k:members",
+      "@container": "@list"
+    },
+    "owner_id": {
+      "@id": "4k:owner_id",
+      "@type": "xsd:integer"
+    },
+    "pending_invitations": {
+      "@id": "4k:pending_invitations",
+      "@container": "@list"
+    },
+    "subscribe_end": {
+      "@id": "4k:subscribe_end",
+      "@type": "xsd:string"
+    },
+    "EnterpriseVo": "4k:EnterpriseVo",
+    "EnterpriseStatsVo": "4k:EnterpriseStatsVo",
+    "task_stats": {
+      "@id": "4k:task_stats",
+      "@type": "@id"
+    },
+    "ApiResponse_EnterpriseUpgradeResultVo": "4k:ApiResponse_EnterpriseUpgradeResultVo",
+    "InviteMemberAO": "4k:InviteMemberAO",
+    "UpgradeEnterpriseAO": "4k:UpgradeEnterpriseAO",
+    "enterprise_name": {
+      "@id": "4k:enterprise_name",
+      "@type": "xsd:string"
+    },
+    "plan_id": {
+      "@id": "4k:plan_id",
+      "@type": "xsd:integer"
+    },
+    "EnterpriseInvitationVo": "4k:EnterpriseInvitationVo",
+    "invitee_id": {
+      "@id": "4k:invitee_id",
+      "@type": "xsd:integer"
+    },
+    "invitee_phone": {
+      "@id": "4k:invitee_phone",
+      "@type": "xsd:string"
+    },
+    "inviter_id": {
+      "@id": "4k:inviter_id",
+      "@type": "xsd:integer"
+    },
+    "responded_at": {
+      "@id": "4k:responded_at",
+      "@type": "xsd:string"
+    },
+    "EnterpriseUpgradeResultVo": "4k:EnterpriseUpgradeResultVo",
+    "ApiResponse_List_CustomerVo": "4k:ApiResponse_List_CustomerVo",
+    "ApiResponse_EnterpriseStatsVo": "4k:ApiResponse_EnterpriseStatsVo",
+    "Resource": "4k:Resource",
+    "file": {
+      "@id": "4k:file",
+      "@type": "xsd:string"
+    },
+    "filename": {
+      "@id": "4k:filename",
+      "@type": "xsd:string"
+    },
+    "inputStream": {
+      "@id": "4k:inputStream",
+      "@type": "@id"
+    },
+    "open": {
+      "@id": "4k:open",
+      "@type": "xsd:boolean"
+    },
+    "readable": {
+      "@id": "4k:readable",
+      "@type": "xsd:boolean"
+    },
+    "uri": {
+      "@id": "4k:uri",
+      "@type": "@id"
+    },
+    "url": {
+      "@id": "4k:url",
+      "@type": "@id"
+    },
+    "TvcTaskReviseAO": "4k:TvcTaskReviseAO",
+    "feedback": {
+      "@id": "4k:feedback",
+      "@type": "xsd:string"
+    },
+    "task_id": {
+      "@id": "4k:task_id",
+      "@type": "xsd:integer"
+    },
+    "ApiResponse_TvcWorkspaceVo": "4k:ApiResponse_TvcWorkspaceVo",
+    "TvcTaskDetailVo": "4k:TvcTaskDetailVo",
+    "accepted_at": {
+      "@id": "4k:accepted_at",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "4k:category",
+      "@type": "xsd:string"
+    },
+    "completed_at": {
+      "@id": "4k:completed_at",
+      "@type": "xsd:string"
+    },
+    "is_urgent": {
+      "@id": "4k:is_urgent",
+      "@type": "xsd:boolean"
+    },
+    "linkman_info": {
+      "@id": "4k:linkman_info",
+      "@type": "xsd:string"
+    },
+    "reference_url": {
+      "@id": "4k:reference_url",
+      "@type": "xsd:string"
+    },
+    "result_url": {
+      "@id": "4k:result_url",
+      "@type": "xsd:string"
+    },
+    "review_deadline": {
+      "@id": "4k:review_deadline",
+      "@type": "xsd:string"
+    },
+    "revision_count": {
+      "@id": "4k:revision_count",
+      "@type": "xsd:integer"
+    },
+    "revisions": {
+      "@id": "4k:revisions",
+      "@container": "@list"
+    },
+    "source_url": {
+      "@id": "4k:source_url",
+      "@type": "xsd:string"
+    },
+    "task_no": {
+      "@id": "4k:task_no",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "4k:title",
+      "@type": "xsd:string"
+    },
+    "unit_price": {
+      "@id": "4k:unit_price",
+      "@type": "xsd:integer"
+    },
+    "video_duration": {
+      "@id": "4k:video_duration",
+      "@type": "xsd:decimal"
+    },
+    "video_fps": {
+      "@id": "4k:video_fps",
+      "@type": "xsd:decimal"
+    },
+    "video_resolution": {
+      "@id": "4k:video_resolution",
+      "@type": "xsd:string"
+    },
+    "TvcTaskCreateResultVo": "4k:TvcTaskCreateResultVo",
+    "TvcWorkspaceVo": "4k:TvcWorkspaceVo",
+    "frozen_credits": {
+      "@id": "4k:frozen_credits",
+      "@type": "xsd:decimal"
+    },
+    "recent_tasks": {
+      "@id": "4k:recent_tasks",
+      "@container": "@list"
+    },
+    "stats": {
+      "@id": "4k:stats",
+      "@type": "@id"
+    },
+    "TvcStatsVo": "4k:TvcStatsVo",
+    "completed_count": {
+      "@id": "4k:completed_count",
+      "@type": "xsd:integer"
+    },
+    "pending_count": {
+      "@id": "4k:pending_count",
+      "@type": "xsd:integer"
+    },
+    "producing_count": {
+      "@id": "4k:producing_count",
+      "@type": "xsd:integer"
+    },
+    "reviewing_count": {
+      "@id": "4k:reviewing_count",
+      "@type": "xsd:integer"
+    },
+    "TvcRevisionVo": "4k:TvcRevisionVo",
+    "customer_feedback": {
+      "@id": "4k:customer_feedback",
+      "@type": "xsd:string"
+    },
+    "revision_no": {
+      "@id": "4k:revision_no",
+      "@type": "xsd:integer"
+    },
+    "TvcTaskIdAO": "4k:TvcTaskIdAO",
+    "ListTvcTasksAO": "4k:ListTvcTasksAO",
+    "ApiResponse_TvcTaskDetailVo": "4k:ApiResponse_TvcTaskDetailVo",
+    "TvcTaskListVo": "4k:TvcTaskListVo",
+    "CreateCinemaTaskAO": "4k:CreateCinemaTaskAO",
+    "duration": {
+      "@id": "4k:duration",
+      "@type": "xsd:decimal"
+    },
+    "ApiResponse_Map_string_object": "4k:ApiResponse_Map_string_object",
+    "TvcTaskCancelAO": "4k:TvcTaskCancelAO",
+    "cancel_reason": {
+      "@id": "4k:cancel_reason",
+      "@type": "xsd:string"
+    },
+    "ApiResponse_TvcTaskCreateResultVo": "4k:ApiResponse_TvcTaskCreateResultVo",
+    "LinkmanInfo": "4k:LinkmanInfo",
+    "wechat": {
+      "@id": "4k:wechat",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "4K Garden API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects 4K Garden's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/4k-garden-auth-controller-api-openapi.yml, openapi/4k-garden-customer-controller-api-openapi.yml, openapi/4k-garden-enterprise-controller-api-openapi.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/4k-garden-auth-controller-api-openapi.yml",
+    "openapi/4k-garden-customer-controller-api-openapi.yml",
+    "openapi/4k-garden-enterprise-controller-api-openapi.yml",
+    "openapi/4k-garden-frontend-controller-api-openapi.yml",
+    "openapi/4k-garden-tvc-controller-api-openapi.yml"
+  ]
+}

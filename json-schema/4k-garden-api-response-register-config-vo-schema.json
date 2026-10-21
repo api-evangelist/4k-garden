@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-register-config-vo-schema.json",
+  "title": "ApiResponse«RegisterConfigVo»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ApiResponse_RegisterConfigVo",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "$ref": "#/$defs/RegisterConfigVo"
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "RegisterConfigVo": {
+      "title": "RegisterConfigVo",
+      "type": "object",
+      "properties": {
+        "invite_code_required": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

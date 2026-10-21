@@ -1,5 +1,5 @@
 generated: '2026-09-05'
-method: derived
+method: none
 source: openapi/4k-garden-diebian-ai-openapi.json
 name: 4K Garden (Diebian AI) authentication profile
 description: >-

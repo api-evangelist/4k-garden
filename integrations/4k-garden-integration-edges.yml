@@ -1,0 +1,16 @@
+generated: '2026-10-20'
+method: none
+source:
+- https://zapier.com/apps/4k-garden/integrations
+- https://n8n.io/integrations/4k-garden/
+- https://composio.dev/toolkits/4k-garden
+- https://monid.ai/tools/4k-garden
+checked:
+- https://composio.dev/toolkits/4k-garden
+- https://monid.ai/tools/4k-garden
+- https://n8n.io/integrations/4k-garden/
+- https://zapier.com/apps/4k-garden/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []

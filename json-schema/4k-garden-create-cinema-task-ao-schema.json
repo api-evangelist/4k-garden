@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-create-cinema-task-ao-schema.json",
+  "title": "CreateCinemaTaskAO",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/CreateCinemaTaskAO",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "number",
+      "format": "bigdecimal"
+    },
+    "linkman_info": {
+      "$ref": "#/$defs/LinkmanInfo"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "LinkmanInfo": {
+      "title": "LinkmanInfo",
+      "type": "object",
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "wechat": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

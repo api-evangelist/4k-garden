@@ -1,0 +1,432 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/4k-garden-auth-controller-api-openapi.yml
+- openapi/4k-garden-customer-controller-api-openapi.yml
+- openapi/4k-garden-enterprise-controller-api-openapi.yml
+- openapi/4k-garden-frontend-controller-api-openapi.yml
+- openapi/4k-garden-tvc-controller-api-openapi.yml
+vocabulary:
+  name: 4K Garden Domain Vocabulary
+  description: 'Terms declared by 4K Garden''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-20'
+  terms:
+  - term: ApiResponse«VerificationCodeVO»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ApiResponse_VerificationCodeVO
+  - term: RegisterAO
+    definition: 'Object declared by the contract with fields: company, invite_code, password, phone, sms_code.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/RegisterAO
+  - term: LoginAO
+    definition: 'Object declared by the contract with fields: password, phone, username.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/LoginAO
+  - term: ApiResponse«Void»
+    definition: 'Object declared by the contract with fields: code, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ApiResponse_Void
+  - term: CustomerVo
+    definition: 'Object declared by the contract with fields: balance_credits, balance_gift_credits, balance_member_credits, balance_purchased_credits,
+      company, created_at, display_name, enterprise_id, enterprise_member_level, enterprise_role, id, member_billing_cycle. (10 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/CustomerVo
+  - term: ApiResponse«LoginResultVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ApiResponse_LoginResultVo
+  - term: LoginResultVo
+    definition: 'Object declared by the contract with fields: token, user.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/LoginResultVo
+  - term: SendCodeAO
+    definition: 'Object declared by the contract with fields: action, code, codeKey, phone.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/SendCodeAO
+  - term: CustomerInfoVo
+    definition: 'Object declared by the contract with fields: balance_credits, balance_gift_credits, balance_member_credits, balance_purchased_credits,
+      balance_rmb, company, created_at, credit_rate, display_name, enterprise_id, enterprise_member_level, enterprise_role. (13 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/CustomerInfoVo
+  - term: VerificationCodeVO
+    definition: 'Object declared by the contract with fields: codeKey, pictureUrl.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/VerificationCodeVO
+  - term: ApiResponse«RegisterConfigVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ApiResponse_RegisterConfigVo
+  - term: HealthVo
+    definition: 'Object declared by the contract with fields: status, version.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/HealthVo
+  - term: LoginSmsAO
+    definition: 'Object declared by the contract with fields: phone, sms_code.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/LoginSmsAO
+  - term: ResetPasswordAO
+    definition: 'Object declared by the contract with fields: new_password, phone, sms_code.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ResetPasswordAO
+  - term: ApiResponse«HealthVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ApiResponse_HealthVo
+  - term: ApiResponse«CustomerInfoVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ApiResponse_CustomerInfoVo
+  - term: RegisterConfigVo
+    definition: 'Object declared by the contract with fields: invite_code_required.'
+    tags:
+    - Object
+    source: openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/RegisterConfigVo
+  - term: ChangePasswordAO
+    definition: 'Object declared by the contract with fields: new_password, old_password.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ChangePasswordAO
+  - term: MemberPlan
+    definition: 'Object declared by the contract with fields: billingCycle, createdAt, credits, description, discountRate, id, isActive, level,
+      maxFileSize, name, price, priceYuan. (1 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/MemberPlan
+  - term: ApiResponse«TaskDetailVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_TaskDetailVo
+  - term: ApiResponse«TaskUploadResultVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_TaskUploadResultVo
+  - term: ApiResponse«List«OrderListVO»»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_List_OrderListVO
+  - term: EnterprisePlanListVo
+    definition: 'Object declared by the contract with fields: data.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/EnterprisePlanListVo
+  - term: ApiResponse«CreditPackageListVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_CreditPackageListVo
+  - term: TaskCreateResultVo
+    definition: 'Object declared by the contract with fields: base_credits, cost_credits, discount_rate, id, priority, status, user_id, video_name,
+      work_duration.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/TaskCreateResultVo
+  - term: Consumption
+    definition: 'Object declared by the contract with fields: createdAt, creditSource, credits, description, enterpriseId, id, relatedId, type,
+      userId.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/Consumption
+  - term: Task
+    definition: 'Object declared by the contract with fields: auditDesc, auditOperator, auditState, auditTime, completedAt, costCredits, costGiftCredits,
+      costMemberCredits, costPurchasedCredits, createdAt, discountRate, downloadCount. (27 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/Task
+  - term: UpdateProfileAO
+    definition: 'Object declared by the contract with fields: nickname.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/UpdateProfileAO
+  - term: ApiResponse«CustomerVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_CustomerVo
+  - term: ApiResponse
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse
+  - term: CustomerStatsVo
+    definition: 'Object declared by the contract with fields: completed_tasks, failed_tasks, processing_tasks, total_credits_used, total_credits_used_rmb,
+      total_tasks.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/CustomerStatsVo
+  - term: ApiResponse«MemberPlanListVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_MemberPlanListVo
+  - term: TaskUploadResultVo
+    definition: 'Object declared by the contract with fields: base_credits, cost_credits, discount_rate, file_size_mb, id, original_duration,
+      original_fps, original_resolution, priority, real_4k, saved_file, status. (3 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/TaskUploadResultVo
+  - term: FpsRateTierVo
+    definition: 'Object declared by the contract with fields: max_fps, rate.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/FpsRateTierVo
+  - term: CreditRulesVo
+    definition: 'Object declared by the contract with fields: credit_rate, fps_rates.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/CreditRulesVo
+  - term: ApiResponse«TaskCreateResultVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_TaskCreateResultVo
+  - term: ChangePhoneAO
+    definition: 'Object declared by the contract with fields: new_phone, phone, sms_code.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ChangePhoneAO
+  - term: CreditPackage
+    definition: 'Object declared by the contract with fields: bonusCredits, createdAt, credits, description, discountRate, id, isActive, name,
+      price, priceYuan, sortOrder, totalCredits.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/CreditPackage
+  - term: EnterpriseBriefVo
+    definition: 'Object declared by the contract with fields: annual_credits_remaining, id, member_level, name, plan, purchased_credits, role.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/EnterpriseBriefVo
+  - term: OrderListVO
+    definition: 'Object declared by the contract with fields: amount, crystals, packageName, paymentMethod, time.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/OrderListVO
+  - term: ApiResponse«CustomerStatsVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_CustomerStatsVo
+  - term: PagedConsumptionVo
+    definition: 'Object declared by the contract with fields: credit_rate, data, page, page_size, total.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/PagedConsumptionVo
+  - term: ApiResponse«CustomerBalanceVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_CustomerBalanceVo
+  - term: ApiResponse«PagedConsumptionVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_PagedConsumptionVo
+  - term: ApiResponse«CreditRulesVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_CreditRulesVo
+  - term: TaskDetailVo
+    definition: 'Object declared by the contract with fields: cost_credits, cost_rmb, created_at, credit_rate, id, progress, status, video_name,
+      work_duration.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/TaskDetailVo
+  - term: EnterprisePlan
+    definition: 'Object declared by the contract with fields: annualCredits, createdAt, description, discountRate, id, isActive, maxConcurrent,
+      maxFileSize, maxMembers, name, planCode, price. (2 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/EnterprisePlan
+  - term: CreateTaskAO
+    definition: 'Object declared by the contract with fields: original_duration, original_fps, original_resolution, output_resolution, remark,
+      use_enterprise_credits, video_name, video_size.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/CreateTaskAO
+  - term: CreditPackageListVo
+    definition: 'Object declared by the contract with fields: credit_rate, data.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/CreditPackageListVo
+  - term: ProductVO
+    definition: 'Object declared by the contract with fields: creditDescription, id, name, price, tips1, tips2, tips3, tips4, tips5, type.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ProductVO
+  - term: FpsRatesVo
+    definition: 'Object declared by the contract with fields: high, low, medium.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/FpsRatesVo
+  - term: CustomerBalanceVo
+    definition: 'Object declared by the contract with fields: balance_credits, balance_gift_credits, balance_member_credits, balance_purchased_credits,
+      balance_rmb, credit_rate, discount_rate, enterprise, member_billing_cycle, member_expire, member_level, member_level_label. (2 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/CustomerBalanceVo
+  - term: MemberPlanListVo
+    definition: 'Object declared by the contract with fields: data.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/MemberPlanListVo
+  - term: ApiResponse«List«ProductVO»»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_List_ProductVO
+  - term: FpsRateTierHighVo
+    definition: 'Object declared by the contract with fields: min_fps, rate.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/FpsRateTierHighVo
+  - term: ApiResponse«PagedTaskVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_PagedTaskVo
+  - term: ApiResponse«EnterprisePlanListVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_EnterprisePlanListVo
+  - term: ApiResponse«JSONObject»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_JSONObject
+  - term: PagedTaskVo
+    definition: 'Object declared by the contract with fields: credit_rate, page, page_size, tasks, total.'
+    tags:
+    - Object
+    source: openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/PagedTaskVo
+  - term: ChangeMemberLevelAO
+    definition: 'Object declared by the contract with fields: member_level.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/ChangeMemberLevelAO
+  - term: ApiResponse«EnterpriseDetailVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/ApiResponse_EnterpriseDetailVo
+  - term: TaskStatsVo
+    definition: 'Object declared by the contract with fields: completed, processing, total, total_credits_used.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/TaskStatsVo
+  - term: EnterpriseDetailVo
+    definition: 'Object declared by the contract with fields: annual_credits, annual_credits_remaining, annual_credits_used, created_at, current_member_count,
+      discount_rate, id, max_concurrent, max_members, members, name, owner_id. (5 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/EnterpriseDetailVo
+  - term: EnterpriseVo
+    definition: 'Object declared by the contract with fields: annual_credits, annual_credits_remaining, annual_credits_used, created_at, current_member_count,
+      discount_rate, id, max_concurrent, max_members, name, owner_id, plan. (3 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/EnterpriseVo
+  - term: EnterpriseStatsVo
+    definition: 'Object declared by the contract with fields: enterprise, task_stats.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/EnterpriseStatsVo
+  - term: ApiResponse«EnterpriseUpgradeResultVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/ApiResponse_EnterpriseUpgradeResultVo
+  - term: InviteMemberAO
+    definition: 'Object declared by the contract with fields: member_level, phone.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/InviteMemberAO
+  - term: UpgradeEnterpriseAO
+    definition: 'Object declared by the contract with fields: enterprise_name, plan_id.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/UpgradeEnterpriseAO
+  - term: EnterpriseInvitationVo
+    definition: 'Object declared by the contract with fields: created_at, enterprise_id, id, invitee_id, invitee_phone, inviter_id, member_level,
+      responded_at, status.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/EnterpriseInvitationVo
+  - term: EnterpriseUpgradeResultVo
+    definition: 'Object declared by the contract with fields: enterprise, user.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/EnterpriseUpgradeResultVo
+  - term: ApiResponse«List«CustomerVo»»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/ApiResponse_List_CustomerVo
+  - term: ApiResponse«EnterpriseStatsVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/ApiResponse_EnterpriseStatsVo
+  - term: Resource
+    definition: 'Object declared by the contract with fields: description, file, filename, inputStream, open, readable, uri, url.'
+    tags:
+    - Object
+    source: openapi/4k-garden-frontend-controller-api-openapi.yml#/components/schemas/Resource
+  - term: TvcTaskReviseAO
+    definition: 'Object declared by the contract with fields: feedback, task_id.'
+    tags:
+    - Object
+    source: openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/TvcTaskReviseAO
+  - term: ApiResponse«TvcWorkspaceVo»
+    definition: 'Object declared by the contract with fields: code, data, msg.'
+    tags:
+    - Object
+    source: openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/ApiResponse_TvcWorkspaceVo
+  - term: TvcTaskDetailVo
+    definition: 'Object declared by the contract with fields: accepted_at, category, completed_at, cost_credits, created_at, description, discount_rate,
+      id, is_urgent, linkman_info, reference_url, result_url. (13 more)'
+    tags:
+    - Object
+    source: openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/TvcTaskDetailVo
+  - term: TvcTaskCreateResultVo
+    definition: 'Object declared by the contract with fields: cost_credits, task_no, video_duration, video_fps, video_resolution.'
+    tags:
+    - Object
+    source: openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/TvcTaskCreateResultVo
+  - term: TvcWorkspaceVo
+    definition: 'Object declared by the contract with fields: frozen_credits, member_expire, member_level, recent_tasks, stats.'
+    tags:
+    - Object
+    source: openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/TvcWorkspaceVo
+  - term: TvcStatsVo
+    definition: 'Object declared by the contract with fields: completed_count, pending_count, producing_count, reviewing_count.'
+    tags:
+    - Object
+    source: openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/TvcStatsVo
+  - term: TvcRevisionVo
+    definition: 'Object declared by the contract with fields: created_at, customer_feedback, result_url, revision_no.'
+    tags:
+    - Object
+    source: openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/TvcRevisionVo

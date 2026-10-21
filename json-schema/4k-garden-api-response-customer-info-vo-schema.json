@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-customer-info-vo-schema.json",
+  "title": "ApiResponse«CustomerInfoVo»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/ApiResponse_CustomerInfoVo",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "$ref": "#/$defs/CustomerInfoVo"
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "CustomerInfoVo": {
+      "title": "CustomerInfoVo",
+      "type": "object",
+      "properties": {
+        "balance_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "balance_gift_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "balance_member_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "balance_purchased_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "balance_rmb": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "company": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "credit_rate": {
+          "type": "number",
+          "format": "float"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "enterprise_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "enterprise_member_level": {
+          "type": "string"
+        },
+        "enterprise_role": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "member_billing_cycle": {
+          "type": "string"
+        },
+        "member_expire": {
+          "type": "string"
+        },
+        "member_level": {
+          "type": "string"
+        },
+        "member_level_label": {
+          "type": "string"
+        },
+        "monthly_task_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "sales_person": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "trial_gift_days": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

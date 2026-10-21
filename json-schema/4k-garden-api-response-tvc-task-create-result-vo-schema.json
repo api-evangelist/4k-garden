@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-tvc-task-create-result-vo-schema.json",
+  "title": "ApiResponse«TvcTaskCreateResultVo»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/ApiResponse_TvcTaskCreateResultVo",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "$ref": "#/$defs/TvcTaskCreateResultVo"
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "TvcTaskCreateResultVo": {
+      "title": "TvcTaskCreateResultVo",
+      "type": "object",
+      "properties": {
+        "cost_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "task_no": {
+          "type": "string"
+        },
+        "video_duration": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "video_fps": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "video_resolution": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

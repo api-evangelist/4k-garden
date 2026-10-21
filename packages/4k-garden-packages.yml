@@ -1,5 +1,5 @@
 generated: '2026-09-05'
-method: searched
+method: none
 source: >-
   registry.npmjs.org search, pypi.org, api.github.com org + repository search, and the
   4kgarden.com and fly4k.com sites

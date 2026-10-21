@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-tvc-task-detail-vo-schema.json",
+  "title": "ApiResponse«TvcTaskDetailVo»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-tvc-controller-api-openapi.yml#/components/schemas/ApiResponse_TvcTaskDetailVo",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "$ref": "#/$defs/TvcTaskDetailVo"
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "TvcRevisionVo": {
+      "title": "TvcRevisionVo",
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "customer_feedback": {
+          "type": "string"
+        },
+        "result_url": {
+          "type": "string"
+        },
+        "revision_no": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "TvcTaskDetailVo": {
+      "title": "TvcTaskDetailVo",
+      "type": "object",
+      "properties": {
+        "accepted_at": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "completed_at": {
+          "type": "string"
+        },
+        "cost_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "discount_rate": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "is_urgent": {
+          "type": "boolean"
+        },
+        "linkman_info": {
+          "type": "string"
+        },
+        "reference_url": {
+          "type": "string"
+        },
+        "result_url": {
+          "type": "string"
+        },
+        "review_deadline": {
+          "type": "string"
+        },
+        "revision_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "revisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TvcRevisionVo"
+          }
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_no": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "unit_price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "video_duration": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "video_fps": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "video_name": {
+          "type": "string"
+        },
+        "video_resolution": {
+          "type": "string"
+        },
+        "video_size": {
+          "type": "number",
+          "format": "bigdecimal"
+        }
+      }
+    }
+  }
+}

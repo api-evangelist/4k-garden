@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-list-product-vo-schema.json",
+  "title": "ApiResponse«List«ProductVO»»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-customer-controller-api-openapi.yml#/components/schemas/ApiResponse_List_ProductVO",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ProductVO"
+      }
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "ProductVO": {
+      "title": "ProductVO",
+      "type": "object",
+      "properties": {
+        "creditDescription": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "tips1": {
+          "type": "string"
+        },
+        "tips2": {
+          "type": "string"
+        },
+        "tips3": {
+          "type": "string"
+        },
+        "tips4": {
+          "type": "string"
+        },
+        "tips5": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

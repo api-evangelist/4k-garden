@@ -1,0 +1,96 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 8
+  own: 3
+  other_domain: 5
+  platform: 0
+  roles:
+  - api
+  - marketing
+  - other
+  - website
+hosts:
+- host: 4kgarden.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: 4kgarden.com
+  role: other
+  relation: own
+- host: api.4kgarden.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: 4kgarden.com
+  role: api
+  relation: own
+- host: api.fly4k.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: fly4k.com
+  role: api
+  relation: other-domain
+- host: api.fly4k.com:80
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: fly4k.com:80
+  role: api
+  relation: other-domain
+- host: video-cn.fly4k.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Pricing
+  serves:
+  - api
+  registrable_domain: fly4k.com
+  role: marketing
+  relation: other-domain
+- host: www.4kgarden.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Website
+  - About
+  - Blog
+  - Careers
+  serves: []
+  registrable_domain: 4kgarden.com
+  role: website
+  relation: own
+- host: www.fly4k.com
+  found_by:
+  - apis[]
+  - probed
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: fly4k.com
+  role: other
+  relation: other-domain
+- host: www.fly4k.com:80
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: fly4k.com:80
+  role: other
+  relation: other-domain

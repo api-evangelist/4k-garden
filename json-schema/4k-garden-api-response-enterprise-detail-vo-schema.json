@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-api-response-enterprise-detail-vo-schema.json",
+  "title": "ApiResponse«EnterpriseDetailVo»",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-enterprise-controller-api-openapi.yml#/components/schemas/ApiResponse_EnterpriseDetailVo",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "data": {
+      "$ref": "#/$defs/EnterpriseDetailVo"
+    },
+    "msg": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "CustomerVo": {
+      "title": "CustomerVo",
+      "type": "object",
+      "properties": {
+        "balance_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "balance_gift_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "balance_member_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "balance_purchased_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "company": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "enterprise_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "enterprise_member_level": {
+          "type": "string"
+        },
+        "enterprise_role": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "member_billing_cycle": {
+          "type": "string"
+        },
+        "member_expire": {
+          "type": "string"
+        },
+        "member_level": {
+          "type": "string"
+        },
+        "monthly_task_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "sales_person": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "trial_gift_days": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "EnterpriseDetailVo": {
+      "title": "EnterpriseDetailVo",
+      "type": "object",
+      "properties": {
+        "annual_credits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "annual_credits_remaining": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "annual_credits_used": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "current_member_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "discount_rate": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "max_concurrent": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "max_members": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CustomerVo"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pending_invitations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EnterpriseInvitationVo"
+          }
+        },
+        "plan": {
+          "type": "string"
+        },
+        "purchased_credits": {
+          "type": "number",
+          "format": "bigdecimal"
+        },
+        "status": {
+          "type": "string"
+        },
+        "subscribe_end": {
+          "type": "string"
+        }
+      }
+    },
+    "EnterpriseInvitationVo": {
+      "title": "EnterpriseInvitationVo",
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "enterprise_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "invitee_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "invitee_phone": {
+          "type": "string"
+        },
+        "inviter_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "member_level": {
+          "type": "string"
+        },
+        "responded_at": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/4k-garden/main/json-schema/4k-garden-register-ao-schema.json",
+  "title": "RegisterAO",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/4k-garden-auth-controller-api-openapi.yml#/components/schemas/RegisterAO",
+  "type": "object",
+  "properties": {
+    "company": {
+      "type": "string"
+    },
+    "invite_code": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "sms_code": {
+      "type": "string"
+    }
+  }
+}
