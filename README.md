@@ -84,52 +84,47 @@ Everything profiled for 4K Garden is published on APIs.io rather than in this re
 
 Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-#### Agentic access (1)
-
-Which operations an agent can call, which act, and which need a human in the loop.
-
-- [4K Garden Agentic Access](https://apis.io/agentic-access/4k-garden/4k-garden-agentic-access/)
-
 #### JSON Schema (25)
 
 The data models the API reads and writes.
 
-- [ApiResponse«CreditPackageListVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-credit-package-list-vo/)
-- [ApiResponse«CustomerInfoVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-customer-info-vo/)
-- [ApiResponse«EnterpriseDetailVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-enterprise-detail-vo/)
-- [ApiResponse«EnterprisePlanListVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-enterprise-plan-list-vo/)
-- [ApiResponse«EnterpriseStatsVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-enterprise-stats-vo/)
-- [ApiResponse«EnterpriseUpgradeResultVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-enterprise-upgrade-result-vo/)
-- [ApiResponse«HealthVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-health-vo/)
-- [ApiResponse«JSONObject»](https://apis.io/schemas/4k-garden/4k-garden-api-response-jsonobject/)
-- [ApiResponse«List«CustomerVo»»](https://apis.io/schemas/4k-garden/4k-garden-api-response-list-customer-vo/)
-- [ApiResponse«List«OrderListVO»»](https://apis.io/schemas/4k-garden/4k-garden-api-response-list-order-list-vo/)
-- [ApiResponse«List«ProductVO»»](https://apis.io/schemas/4k-garden/4k-garden-api-response-list-product-vo/)
-- [ApiResponse«LoginResultVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-login-result-vo/)
-- [ApiResponse«Map«string,object»»](https://apis.io/schemas/4k-garden/4k-garden-api-response-map-string-object/)
-- [ApiResponse«RegisterConfigVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-register-config-vo/)
-- [ApiResponse«TvcTaskCreateResultVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-tvc-task-create-result-vo/)
-- [ApiResponse«TvcTaskDetailVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-tvc-task-detail-vo/)
-- [ApiResponse«TvcWorkspaceVo»](https://apis.io/schemas/4k-garden/4k-garden-api-response-tvc-workspace-vo/)
-- [ApiResponse«VerificationCodeVO»](https://apis.io/schemas/4k-garden/4k-garden-api-response-verification-code-vo/)
-- [ApiResponse«Void»](https://apis.io/schemas/4k-garden/4k-garden-api-response-void/)
-- [CreateCinemaTaskAO](https://apis.io/schemas/4k-garden/4k-garden-create-cinema-task-ao/)
-- [CreateTaskAO](https://apis.io/schemas/4k-garden/4k-garden-create-task-ao/)
-- [ListTvcTasksAO](https://apis.io/schemas/4k-garden/4k-garden-list-tvc-tasks-ao/)
-- [RegisterAO](https://apis.io/schemas/4k-garden/4k-garden-register-ao/)
-- [Resource](https://apis.io/schemas/4k-garden/4k-garden-resource/)
-- [UpgradeEnterpriseAO](https://apis.io/schemas/4k-garden/4k-garden-upgrade-enterprise-ao/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-credit-package-list-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-customer-info-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-enterprise-detail-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-enterprise-plan-list-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-enterprise-stats-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-enterprise-upgrade-result-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-health-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-jsonobject/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-list-customer-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-list-order-list-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-list-product-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-login-result-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-map-string-object/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-register-config-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-tvc-task-create-result-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-tvc-task-detail-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-tvc-workspace-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-verification-code-vo/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-api-response-void/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-create-cinema-task-ao/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-create-task-ao/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-list-tvc-tasks-ao/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-register-ao/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-resource/)
+- [Moved to /providers/4k-garden/](https://apis.io/schemas/4k-garden/4k-garden-upgrade-enterprise-ao/)
 
 #### JSON-LD (1)
 
 Linked-data contexts for the provider's vocabulary.
 
-- [4K Garden Context](https://apis.io/jsonld/4k-garden/4k-garden-context/)
+- [Moved to /providers/4k-garden/](https://apis.io/jsonld/4k-garden/4k-garden-context/)
 
-#### Overlays (1)
+#### Overlays (2)
 
 OpenAPI overlays, including conversational phrasing for each operation.
 
+- [4K Garden Auth Controller Api Certification Overlay](https://apis.io/overlays/4k-garden/4k-garden-auth-controller-api-certification-overlay/)
 - [4K Garden Diebian Ai Overlay](https://apis.io/overlays/4k-garden/4k-garden-diebian-ai-overlay/)
 
 #### Governance rules (1)
@@ -167,26 +162,26 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 35.3** — thin · rubric 0.24.0 · scored 2026-10-20
+**Kin Score 26.8** — thin · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 66.1 |
-| Contract quality | 52.3 |
-| Contract governance | 67.3 |
+| Contract quality | 38.7 |
+| Contract governance | 18.2 |
 | Operational transparency | 0.0 |
-| Developer ergonomics | 3.0 |
-| Access clarity | 42.1 |
+| Developer ergonomics | 14.9 |
+| Access clarity | 34.0 |
 
-**Agent readiness 25.3** — agent-aware
+**Agent readiness 19.8** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
 | Spec Presence | yes |
-| Agentic Access | unknown |
+| Agentic Access | — |
 | Reversibility Documented | documented (partial credit) |
 | MCP Server | — |
-| Auth Clarity | — |
+| Auth Clarity | bearer (partial credit) |
 | Idempotency | — |
 | Error Semantics | derived (partial credit) |
 | OpenAPI Examples | — |
@@ -201,6 +196,12 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Protected Resource Metadata | — |
 | Dynamic Client Registration | — |
 | Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | — |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
 **Regulatory alignment 10.0** — Horizontal (data, software, accessibility, platform)
 
